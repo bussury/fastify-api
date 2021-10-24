@@ -1,0 +1,39 @@
+{
+  "name": "fastify-api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "migrate": "knex migrate:latest --knexfile ./database/knexfile.js ",
+    "seed": "knex seed:run --knexfile database/knexfile.js",
+    "dev": "node server",
+    "watch": "nodemon server",
+    "build": "node server build",
+    "serve": "cross-env NODE_ENV=production node server",
+    "debug": "node --inspect-brk server",
+    "test": "tap resources/test/test.js"
+  },
+  "dependencies": {
+    "axios": "^0.23.0",
+    "connect-session-knex": "^2.1.0",
+    "faker": "^5.5.3",
+    "fastify-api": "^0.2.0",
+    "fastify-cookie": "^5.3.1",
+    "fastify-formbody": "^5.1.0",
+    "fastify-multipart": "^5.0.2",
+    "fastify-sensible": "^3.1.1",
+    "fastify-session": "^5.2.1",
+    "fastify-vite": "^2.2.0-beta.18",
+    "fastify-vite-vue": "^2.2.0-beta.18",
+    "http-errors": "^1.8.0",
+    "knex": "^0.95.11",
+    "mysql2": "^2.3.2",
+    "objection": "^3.0.0-alpha.5"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
+    "fastify": "^3.22.1",
+    "fastify-autoload": "^3.9.0",
+    "nodemon": "^2.0.14"
+  }
+}
