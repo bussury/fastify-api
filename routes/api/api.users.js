@@ -1,4 +1,4 @@
-import UserController from "../../app/http/Controllers/Api/UserController.js";
+const UserController = require("../../app/http/Controllers/Api/UserController.js");
 
 const userProperties = {
     id: { type: 'integer' },
@@ -141,4 +141,4 @@ const updateSchema = {
 
 }
 
-export default userRoutes
+module.exports = userRoutes

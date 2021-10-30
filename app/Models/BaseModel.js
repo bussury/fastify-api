@@ -1,5 +1,5 @@
-import {Model} from "objection";
-import BaseQuery from "./BaseQuery.js"
+const {Model} = require("objection");
+const BaseQuery = require("./BaseQuery.js")
 
 class BaseModel extends Model{
     
@@ -19,4 +19,4 @@ class BaseModel extends Model{
     // }
 }
 
-export default  BaseModel
+module.exports = BaseModel

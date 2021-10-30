@@ -1,6 +1,6 @@
-import 'dotenv/config'
+require ('dotenv/config')
 
-const connection = {
+module.exports = {
     host : process.env.DB_HOST||'127.0.0.1',
     port : process.env.DB_PORT||'3306',
     user : process.env.DB_USER||'root',
@@ -8,4 +8,5 @@ const connection = {
     database : process.env.DB_NAME||'fastify_api'
 }
 
-export { connection }
+// export { connection }
+// module.exports = connection

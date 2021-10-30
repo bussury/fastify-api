@@ -1,6 +1,8 @@
-import {connection} from "./config.js";
+const connection =  require("./config");
 
-export default  {
+console.log(connection)
+// export default  {
+module.exports = {
   development: {
       client: 'mysql2',
       connection,

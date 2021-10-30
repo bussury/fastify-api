@@ -1,7 +1,6 @@
 {
   "name": "fastify-api",
   "private": true,
-  "type": "module",
   "scripts": {
     "migrate": "knex migrate:latest --knexfile ./database/knexfile.js ",
     "seed": "knex seed:run --knexfile database/knexfile.js",

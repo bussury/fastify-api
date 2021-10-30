@@ -1,17 +1,16 @@
 'use strict'
-import cookies from 'fastify-cookie'
-import session from 'fastify-session'
-import KnexSession from 'connect-session-knex'
-import Knex from "knex";
-import fp from 'fastify-plugin';
+const cookies = require('fastify-cookie')
+const session = require('fastify-session')
+const KnexSession = require('connect-session-knex')
+const Knex = require("knex");
+const fp = require('fastify-plugin');
 
-import knexfile from '../database/knexfile.js'
+const knexfile = require('../database/knexfile')
 
 /**
  * environment setting
  */
-;
- const configEnvironment = knexfile[process.env.APP_ENV];
+const configEnvironment = knexfile[process.env.APP_ENV];
 
 const knex = Knex(configEnvironment);
 
@@ -39,4 +38,4 @@ const appSession = async (fastify) => {
         expires: 1800000
     });
 };
-export default fp(appSession)
+module.exports = fp(appSession)
