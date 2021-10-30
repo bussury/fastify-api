@@ -2,9 +2,9 @@
   <div>
     <router-link to="/">Index</router-link> - 
     <router-link to="/hello">Hello</router-link>
-    <router-view v-slot="{ Component }">
-      <Suspense>
-        <component :key="route.path" :is="Component" />
+    <router-view v-slot ="{Component}" >
+      <Suspense> 
+        <component :key="route.path" :is="Component"></component>
       </Suspense>
     </router-view>
   </div>

@@ -8,6 +8,11 @@ export const routes = [
         component: () => import("/resources/Pages/index.vue"),
     },
     {
+        path: '/:catchAll(.*)*',
+        name: "PageNotFound",
+        component: () => import('/resources/Components/NotFound.vue'),
+      },
+    {
         path: '/hello',
         name: 'home.hello',
         component: () => import("/resources/Pages/hello.vue"),
