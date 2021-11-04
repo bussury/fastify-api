@@ -12,20 +12,19 @@
     "test": "tap resources/test/test.js"
   },
   "dependencies": {
-    "-": "^0.0.1",
     "axios": "^0.24.0",
     "connect-session-knex": "^2.1.0",
     "faker": "^5.5.3",
     "fastify-api": "^0.2.0",
     "fastify-cookie": "^5.3.1",
     "fastify-formbody": "^5.1.0",
-    "fastify-multipart": "^5.0.2",
+    "fastify-multipart": "^5.1.0",
     "fastify-sensible": "^3.1.2",
     "fastify-session": "^5.2.1",
     "fastify-vite": "^2.2.0-beta.25",
     "fastify-vite-vue": "^2.2.0-beta.25",
     "http-errors": "^1.8.0",
-    "knex": "^0.95.12",
+    "knex": "^0.95.13",
     "mysql2": "^2.3.2",
     "objection": "^3.0.0-alpha.5"
   },
