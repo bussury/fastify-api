@@ -1,7 +1,7 @@
 import { getRoutes } from 'fastify-vite/app'
 import { hydrateRoutes } from 'fastify-vite-vue/client.mjs'
 
-export const routes = [
+const routes = [
     {
         path: '/',
         name: 'home.index',

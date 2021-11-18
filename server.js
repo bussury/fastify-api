@@ -23,7 +23,6 @@ async function main() {
 
   await app.register(fastifyApi)
   await app.register(fastifyVite, {
-    // api: true,
     root,
     renderer: fastifyViteVue,
     // build: process.argv.includes('build'),

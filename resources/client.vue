@@ -3,7 +3,7 @@
     <router-link to="/">Index</router-link> - 
     <router-link to="/hello">Hello</router-link>
     <router-view v-slot ="{Component}" >
-      <Suspense> 
+      <Suspense @resolve="hydrationDone"> 
         <component :key="route.path" :is="Component"></component>
       </Suspense>
     </router-view>
@@ -11,11 +11,16 @@
 </template>
 
 <script>
+import { hydrationDone } from 'fastify-vite-vue/client.mjs'
 import { useHead } from '@vueuse/head'
+import head from '@app/head.js'
 import { useRoute } from 'vue-router'
 
 export default {
   setup () {
+    if (head) {
+  		useHead(head)
+  	}
     useHead({
       htmlAttrs:{
         lang:'en'
@@ -33,7 +38,9 @@ export default {
         content: 'school management system',
       }]
     })
-    return { route: useRoute() }
+    return { 
+      hydrationDone, 
+      route: useRoute() }
   }
 }
 </script>
