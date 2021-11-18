@@ -1,5 +1,6 @@
 {
   "name": "fastify-api",
+  "type": "module",
   "private": true,
   "scripts": {
     "migrate": "knex migrate:latest --knexfile ./database/knexfile.js ",

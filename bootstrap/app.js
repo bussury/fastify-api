@@ -1,18 +1,12 @@
-// import fastifyMultipart from 'fastify-multipart'
-// import fastifySensible from "fastify-sensible";
-// import formBodyPlugin from 'fastify-formbody'
+import fastifyMultipart from 'fastify-multipart'
+import fastifySensible from "fastify-sensible";
+import formBodyPlugin from 'fastify-formbody'
 
-const fastifyMultipart =  require('fastify-multipart')
-const fastifySensible =  require('fastify-sensible')
-const formBodyPlugin = require('fastify-formbody')
+import autoLoad from 'fastify-autoload'
+import path from 'path'
 
-// import autoLoad from 'fastify-autoload'
-const autoLoad = require('fastify-autoload')
-const path = require('path')
-// import { dirname, join} from 'path'
 
-// import ErrorHandler from './../app/Exceptions/handler.js'
-const ErrorHandler =  require('../app/Exceptions/handler.js')
+import ErrorHandler from './../app/Exceptions/handler.js'
 
 
 
@@ -29,7 +23,7 @@ const root_folder = process.cwd()
   *  5. your services
   **/ 
  
-module.exports = async function (app) {  
+export default async function (app) {  
     /***
      * 01. PLUGINS FROM FASTIFY ECOSYSTEM
      */

@@ -1,8 +1,8 @@
-// import objection from 'objection';
-const objection = require('objection')
+import objection from 'objection';
+// const objection = require('objection')
 
-// export default function (err, req, res){
-module.exports =  function (err, req, res){
+export default function (err, req, res){
+// module.exports =  function (err, req, res){
     const {NotFoundError, ValidationError, UniqueViolationError} = objection;
     // const {nativeError} = err
     const { validation, validationContext } = err

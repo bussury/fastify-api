@@ -17,7 +17,7 @@ import { ref, reactive, getCurrentInstance } from 'vue'
 import { useHead } from '@vueuse/head'
 // import {useServerAPI, useServerData} from 'fastify-vite/hooks'
 
-export const path = '/hello'
+// export const path = '/hello'
 export default {
   async setup () {
     useHead({

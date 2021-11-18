@@ -1,4 +1,4 @@
-const BaseModel = require('./BaseModel.js')
+import BaseModel from './BaseModel.js'
 
 class Users extends BaseModel {
 
@@ -47,4 +47,4 @@ class Users extends BaseModel {
 
 }
 
-module.exports =  Users;
+export default Users;

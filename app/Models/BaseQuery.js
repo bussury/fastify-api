@@ -1,4 +1,4 @@
-const { QueryBuilder } = require('objection');
+import { QueryBuilder } from 'objection';
 
 class BaseQuery extends QueryBuilder{
     
@@ -89,4 +89,5 @@ class BaseQuery extends QueryBuilder{
         return this
       }
 }
-module.exports = BaseQuery
+
+export default BaseQuery

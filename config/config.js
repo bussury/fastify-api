@@ -1,6 +1,6 @@
   
 'use strict'
-const fp = require('fastify-plugin');
+import fp from 'fastify-plugin';
 
 /**
  * @param {import('fastify').FastifyInstance} fastify 
@@ -8,5 +8,4 @@ const fp = require('fastify-plugin');
 const plugin = async (fastify) => {
    
 };
-// export default fp(plugin)
-module.exports = fp(plugin)
+export default fp(plugin)

@@ -14,9 +14,9 @@
 
 <script>
 import { ref, reactive, getCurrentInstance } from 'vue'
-
 import { useHead } from '@vueuse/head'
 
+export const path = '/hello'
 
 export default {
   async setup () {

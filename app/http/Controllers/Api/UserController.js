@@ -1,5 +1,4 @@
-const Users  = require('../../../Models/Users.js')
-
+import Users from '../../../Models/Users.js'
 class UserController {
 
     constructor( ) {
@@ -105,4 +104,4 @@ class UserController {
     }
 }
 
-module.exports = new UserController()
+export default new UserController()

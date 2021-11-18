@@ -1,11 +1,8 @@
-// import knex from "knex";
-// import {Model} from "objection";
-// import knexfile from '../database/knexfile.js'
+import knex from "knex";
+import {Model} from "objection";
+import knexfile from '../database/knexfile.js'
 // import 'dotenv/config'
 
-const knex =  require('knex')
-const { Model} = require('objection')
-const knexfile =  require('../database/knexfile.js')
 
 const connectDB = async () => {
     /**
@@ -31,5 +28,5 @@ const connectDB = async () => {
 /**
  * export connection
  */
-// export default connectDB;
-module.exports = connectDB
+export default connectDB;
+// module.exports = connectDB
