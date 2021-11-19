@@ -6,3 +6,4 @@ package-lock.json
 *.iml
 .vscode
 .env
+.env.backup

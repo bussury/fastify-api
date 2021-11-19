@@ -17,6 +17,3 @@ const routes = [
 export default import.meta.env.SSR
     ? () => getRoutes(import.meta.globEager('/resources/Pages/*.vue'))
     : () => getRoutes(hydrateRoutes(import.meta.glob('/resources/Pages/*.vue')))
-
-
-// export default () => getRoutes(routes)
