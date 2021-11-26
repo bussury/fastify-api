@@ -2,17 +2,10 @@ import fastify from 'fastify'
 import fastifyVite from 'fastify-vite'
 import fastifyViteVue from 'fastify-vite-vue'
 import fastifyApi from 'fastify-api'
-// import { dirname, join} from 'path'
-
 
 import bootstrap from './bootstrap/app.js'
-// const bootstrap = require('./bootstrap/app.js')
-
-
-
 
 async function main() {
-
   const app = fastify({
     logger: true,
     ignoreTrailingSlash: true
@@ -27,8 +20,8 @@ async function main() {
     renderer: fastifyViteVue,
     // build: process.argv.includes('build'),
   })
-
   await app.vite.get('/*')
+  await app.vite.commands()
   await app.vite.ready()
   /**
    * return fastify app

@@ -8,12 +8,7 @@ import path from 'path'
 
 import ErrorHandler from './../app/Exceptions/handler.js'
 
-
-
-// const __filename = process.cwd()+ '/will be removed by dirname's
-// const __dirname = path.dirname(__filename)
-
-const root_folder = process.cwd()
+const base = process.cwd()
 /**
   *  order to register / load
   *  1. plugins (from the Fastify ecosystem)
@@ -42,7 +37,7 @@ export default async function (app) {
     // through your application
 
       await app.register(autoLoad, {
-        dir: path.join(root_folder, 'config')
+        dir: path.join(base, 'config')
       })
 
     /**
@@ -52,20 +47,16 @@ export default async function (app) {
      
 
     /**
-     * register all routes served by client eg. vuejs,react,svelt etc
+     * register all routes served by server
+     * @API routes
      */
       await app.register(autoLoad, {
-        dir: path.join(root_folder, 'routes/api'),
+        dir: path.join(base, 'routes/api'),
         options: Object.assign({ prefix: '/api' })
         })
         // await app.register(autoLoad, {
         //   dir: join(__dirname, 'routes/web')
         // })
-
-    /**
-     * register all routes served by fastify POV
-     */
-
 
     // 4. middlewares
 
