@@ -5,6 +5,8 @@ import { createHead } from '@vueuse/head'
 import base from './client.vue' 
 import routes from '../routes/web/web.js'
 
+import './assets/main.css'
+
 export async function createApp (ctx) {
   const resolvedRoutes = await routes()
   const app = createSSRApp(base)

@@ -5,10 +5,10 @@
   "scripts": {
     "migrate": "knex migrate:latest --knexfile ./database/knexfile.js ",
     "seed": "knex seed:run --knexfile database/knexfile.js",
-    "dev": "node server",
-    "watch": "nodemon server",
-    "build": "node server build",
-    "serve": "cross-env NODE_ENV=production node server",
+    "dev": "node server.mjs",
+    "watch": "nodemon server.mjs",
+    "build": "node server.mjs build",
+    "serve": "cross-env NODE_ENV=production node server.mjs",
     "debug": "node --inspect-brk server",
     "test": "tap resources/test/test.js"
   },
@@ -30,10 +30,13 @@
     "objection": "^3.0.0"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.0",
     "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "fastify": "^3.24.0",
     "fastify-autoload": "^3.9.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "postcss": "^8.4.4",
+    "tailwindcss": "^2.2.19"
   }
 }

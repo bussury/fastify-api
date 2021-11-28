@@ -1,5 +1,6 @@
 <template>
 
+  <router-link to='/'>home</router-link>
   <div>
     <div class="">
       hello {{user}} bussury

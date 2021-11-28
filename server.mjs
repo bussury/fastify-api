@@ -19,6 +19,7 @@ async function main() {
     root,
     renderer: fastifyViteVue,
     // build: process.argv.includes('build'),
+ 
   })
   await app.vite.get('/*')
   await app.vite.commands()
