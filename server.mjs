@@ -2,8 +2,10 @@ import fastify from 'fastify'
 import fastifyVite from 'fastify-vite'
 import fastifyViteVue from 'fastify-vite-vue'
 import fastifyApi from 'fastify-api'
+import vite from 'vite'
 
 import bootstrap from './bootstrap/app.js'
+
 
 async function main() {
   const app = fastify({
@@ -17,7 +19,7 @@ async function main() {
   await app.register(fastifyApi)
   await app.register(fastifyVite, {
     root,
-    renderer: fastifyViteVue,
+    renderer: fastifyViteVue
     // build: process.argv.includes('build'),
  
   })
