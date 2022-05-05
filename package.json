@@ -2,6 +2,7 @@
   "name": "fastify-api",
   "type": "module",
   "private": true,
+  "author": "Bussury A.Omary",
   "scripts": {
     "migrate": "knex migrate:latest --knexfile ./database/knexfile.js ",
     "seed": "knex seed:run --knexfile database/knexfile.js",
