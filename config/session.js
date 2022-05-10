@@ -1,5 +1,5 @@
 'use strict'
-import cookies from 'fastify-cookie'
+import cookies from '@fastify/cookie'
 import session from 'fastify-session'
 import KnexSession from  'connect-session-knex'
 import  Knex  from 'knex'
