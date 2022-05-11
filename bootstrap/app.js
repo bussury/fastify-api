@@ -1,8 +1,8 @@
-import fastifyMultipart from 'fastify-multipart'
-import fastifySensible from "fastify-sensible";
-import formBodyPlugin from 'fastify-formbody'
+import fastifyMultipart from '@fastify/multipart'
+import fastifySensible from "@fastify/sensible";
+import formBodyPlugin from '@fastify/formbody'
 
-import autoLoad from 'fastify-autoload'
+import autoLoad from '@fastify/autoload'
 import path from 'path'
 
 
