@@ -27,7 +27,7 @@ async function main() {
 
 if (!process.argv.includes('test')) {
   const app = await main()
-  const address = await app.listen(3000)
+  const address = await app.listen({port: 3000})
   console.log(`Listening at ${address}.`)
 }
 
