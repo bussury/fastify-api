@@ -8,4 +8,5 @@ import fp from 'fastify-plugin';
 const plugin = async (fastify) => {
    
 };
+
 export default fp(plugin)

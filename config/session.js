@@ -37,4 +37,5 @@ const appSession = async (fastify) => {
         expires: 1800000
     });
 };
+
 export default fp(appSession)
