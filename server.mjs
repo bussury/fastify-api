@@ -12,13 +12,6 @@ async function main() {
   
   await app.register(bootstrap)
 
-  // await app.register(fastifyVite, {
-  //   root,
-  //   renderer: fastifyViteVue
-  //   // build: process.argv.includes('build'),
- 
-  // })
-
   /**
    * return fastify app
    */
