@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import viteVue from '@vitejs/plugin-vue'
+import {resolve} from 'path';
 
 const dev = process.env.NODE_ENV !== 'production'
 
