@@ -1,5 +1,6 @@
 import fastify from 'fastify'
 import { Assert as assert } from './Assert.js'
+import Bootstrap from './../../bootstrap/app.js'
 
 class Server{
     constructor(
@@ -26,6 +27,9 @@ function start({ port, host, controllers, middlewares, ErrorMiddleware, cookieSe
             logger: true,
             ignoreTrailingSlash: true
           })
+
+        app.register(Bootstrap)
+        return app.listen({port, host}, () => resolve({ port, host }))
     })
 }
 
