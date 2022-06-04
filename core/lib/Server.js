@@ -1,6 +1,6 @@
 import fastify from 'fastify'
 import { Assert as assert } from './Assert.js'
-import Bootstrap from './../../bootstrap/app.js'
+import Bootstrap from '../../bootstrap/app.js'
 
 class Server{
     constructor(

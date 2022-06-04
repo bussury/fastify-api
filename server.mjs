@@ -1,4 +1,5 @@
 import fastify from 'fastify'
+import { Server, assert } from './core/index.js'
 
 import bootstrap from './bootstrap/app.js'
 

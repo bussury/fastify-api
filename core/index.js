@@ -1,5 +1,5 @@
-import ErrorCodes from './lib/ErrorCodes.js'
-import { Assert } from './lib/assert'
+import ErrorCodes from './lib/ErrorCode.js'
+import { Assert } from './lib/Assert.js'
 // import { ValidatorNano } from './lib/validator/ValidatorNano'
 
 import { BaseConfig } from './lib/BaseConfig.js'
@@ -13,12 +13,12 @@ import { Rule } from './lib/Rule.js'
 import { RequestRule } from './lib/RequestRule.js'
 // import { SentryCatch } from './lib/SentryCatch'
 import { Server } from './lib/Server.js'
-import { Logger } from './lib/Logger.js'
+// import { Logger } from './lib/Logger.js'
 // import { CookieEntity } from './lib/CookieEntity'
 
-export default {
+export  {
   ErrorCodes,
-  assert: Assert,
+  Assert as assert,
 //   ValidatorNano,
 
   BaseConfig,

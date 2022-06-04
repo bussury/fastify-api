@@ -1,5 +1,5 @@
-import {AssertionError}  from './AssertionError.js'
-import Rule from './Rule'
+import  AssertionError   from './AssertionError.js'
+import Rule from './Rule.js'
 
 import util from 'util'
 
@@ -134,4 +134,4 @@ class Assert {
         if (value && !URL_REGEXP.test(value)) Assert.fail(value, 'URL', message)
     }
 }
-export default {Assert}
+export  {Assert}
