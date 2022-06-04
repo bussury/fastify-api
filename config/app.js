@@ -16,4 +16,4 @@ class AppConfig extends BaseConfig {
     }
 }
 
-export const AppConfig = new AppConfig()
+export default new AppConfig()
