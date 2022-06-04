@@ -11,3 +11,5 @@ class RequestRule {
         this.options = { required, allowed }
     }
 }
+
+export { RequestRule }

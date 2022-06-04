@@ -1,5 +1,5 @@
-import  AssertionError   from './AssertionError.js'
-import Rule from './Rule.js'
+import  {AssertionError}   from './AssertionError.js'
+import {Rule} from './Rule.js'
 
 import util from 'util'
 

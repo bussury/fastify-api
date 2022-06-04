@@ -11,4 +11,4 @@ class Rule {
     }
 }
 
-export default { Rule }
+export { Rule }

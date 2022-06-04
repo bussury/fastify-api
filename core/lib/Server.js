@@ -33,4 +33,4 @@ function start({ port, host, controllers, middlewares, ErrorMiddleware, cookieSe
     })
 }
 
-export default { Server }
+export { Server }

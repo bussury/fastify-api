@@ -95,4 +95,4 @@ class BaseConfig{
   }
 }
 
-export default {BaseConfig}
+export  {BaseConfig}

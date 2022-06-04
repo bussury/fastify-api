@@ -1,4 +1,4 @@
-import { Abstract } from './Abstract.js'
+import  {Abstract}  from './Abstract.js'
 
 class AbstractLogger extends Abstract {
   constructor () {
@@ -17,4 +17,4 @@ class AbstractLogger extends Abstract {
   }
 }
 
-export default { AbstractLogger }
+export { AbstractLogger }
