@@ -8,8 +8,6 @@ async function main() {
     logger: true,
     ignoreTrailingSlash: true
   })
-  const root = import.meta.url
-  
   await app.register(bootstrap)
 
   /**
