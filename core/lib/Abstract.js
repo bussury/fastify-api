@@ -1,6 +1,6 @@
 import { Assert as assert } from './Assert.js'
 
-class Abstract {
+class  Abstract {
     __abstractField (ctx, fieldName) {
       assert.object(ctx, { required: true })
       assert.string(fieldName, { notEmpty: true })
@@ -25,4 +25,4 @@ class Abstract {
     }
   }
   
-  export default { Abstract }
+  export  { Abstract }
