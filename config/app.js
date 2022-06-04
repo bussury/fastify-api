@@ -12,8 +12,8 @@ class AppConfig extends BaseConfig {
 
     async init () {
         //  we ca initilize any async function before
-
-
+        logger.debug(`${this.constructor.name}: Initialization finish...`)
     }
-
 }
+
+export const AppConfig = new AppConfig()
