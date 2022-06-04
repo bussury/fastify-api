@@ -1,11 +1,11 @@
-import ErrorCodes from './lib/ErrorCode.js'
+import * as ErrorCodes from './lib/ErrorCode.js'
 import { Assert } from './lib/Assert.js'
 // import { ValidatorNano } from './lib/validator/ValidatorNano'
 
 import { BaseConfig } from './lib/BaseConfig.js'
 // import { BaseMiddleware } from './lib/BaseMiddleware.js'
 // import { BaseModel } from './lib/BaseModel.js'
-import { AbstractLogger } from './lib/AbstractLogger.js'
+import  {AbstractLogger}  from './lib/AbstractLogger.js'
 
 import { AppError } from './lib/AppError.js'
 // import { InMemoryCache } from './lib/InMemoryCache'
