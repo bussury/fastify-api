@@ -36,9 +36,9 @@ export default async function (app) {
     // those should be support plugins that are reused
     // through your application
 
-      await app.register(autoLoad, {
-        dir: path.join(base, 'config')
-      })
+      // await app.register(autoLoad, {
+      //   dir: path.join(base, 'config')
+      // })
 
     /**
      * error setting
