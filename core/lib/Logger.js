@@ -1,6 +1,7 @@
 import pino from "pino";
 
 import { Assert as assert } from "./Assert";
+import { ValidatorNano as validator} from './ValidatorNano'
 import { AbstractLogger } from "./AbstractLogger";
 
 
