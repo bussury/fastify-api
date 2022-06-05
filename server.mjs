@@ -1,5 +1,6 @@
 import fastify from 'fastify'
 import { Server, assert } from './core/index.js'
+import { AppConfig } from './config/app.js'
 
 import bootstrap from './bootstrap/app.js'
 
@@ -9,7 +10,7 @@ async function main() {
     logger: true,
     ignoreTrailingSlash: true
   })
-  await app.register(bootstrap)
+  // await app.register(bootstrap)
 
   /**
    * return fastify app

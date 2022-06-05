@@ -1,9 +1,10 @@
 import pino from "pino";
 
-import { Assert as assert } from "./Assert";
-import { ValidatorNano as validator} from './ValidatorNano'
-import { AbstractLogger } from "./AbstractLogger";
+import { Assert as assert } from "./Assert.js";
+import { ValidatorNano as validator} from './ValidatorNano.js'
+import { AbstractLogger } from "./AbstractLogger.js";
 
+const $ = Symbol('private scope')
 
 class Logger extends AbstractLogger {
     constructor({appName, raw = false} = {}){
