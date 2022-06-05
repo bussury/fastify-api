@@ -7,7 +7,7 @@ const UUID_REGEXP = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}
 const URL_REGEXP = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i
 const validTypes = [Number, String, Object, Array, Boolean, Function]
 
-const isBonject =  (v) => v && typeof v === 'object' && !Array.isArray(v)
+const isObject =  (v) => v && typeof v === 'object' && !Array.isArray(v)
 
 class Assert {
 
@@ -92,7 +92,7 @@ class Assert {
         if (value !== undefined && isInteger && value > max) Assert.fail(value, `Maximum value: ${max}`, message)
         }
     }
-    static string (value, { required = false, message = '' } = {}) {
+    static string (value, { required = false, notEmpty = false, message = '' } = {}) {
         if (required || notEmpty) Assert.typeOf(value, String, message)
         if (value !== undefined) Assert.typeOf(value, String, message)
         if (value !== undefined && !value.trim().length && notEmpty) Assert.fail(value, 'Not empty string', message)

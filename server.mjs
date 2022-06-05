@@ -1,27 +1,38 @@
 import fastify from 'fastify'
 import { Server, assert } from './core/index.js'
-import { AppConfig } from './config/app.js'
+import { app, start }  from './config/index.js'
+import logger from './logger.js'
 
 import bootstrap from './bootstrap/app.js'
 
 
-async function main() {
-  const app = fastify({
-    logger: true,
-    ignoreTrailingSlash: true
+
+start().then(() => {
+  return new Server({
+    port: Number(app.port),
+    host: app.host,
+    controllers: app.controllers,
+    logger
   })
-  // await app.register(bootstrap)
+})
 
-  /**
-   * return fastify app
-   */
-  return app;
-};
+// async function main() {
+//   const app = fastify({
+//     logger: true,
+//     ignoreTrailingSlash: true
+//   })
+//   // await app.register(bootstrap)
 
-if (!process.argv.includes('test')) {
-  const app = await main()
-  const address = await app.listen({port: 3000})
-  console.log(`Listening at ${address}.`)
-}
+//   /**
+//    * return fastify app
+//    */
+//   return app;
+// };
 
-export default main
+// if (!process.argv.includes('test')) {
+//   const app = await main()
+//   const address = await app.listen({port: 3000})
+//   console.log(`Listening at ${address}.`)
+// }
+// 
+// export default main

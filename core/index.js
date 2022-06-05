@@ -13,7 +13,7 @@ import { Rule } from './lib/Rule.js'
 import { RequestRule } from './lib/RequestRule.js'
 // import { SentryCatch } from './lib/SentryCatch'
 import { Server } from './lib/Server.js'
-// import { Logger } from './lib/Logger.js'
+import { Logger } from './lib/Logger.js'
 // import { CookieEntity } from './lib/CookieEntity'
 
 export  {
@@ -33,6 +33,6 @@ export  {
   RequestRule,
 //   SentryCatch,
   Server,
-//   Logger,
+  Logger,
 //   CookieEntity
 }

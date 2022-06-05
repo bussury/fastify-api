@@ -1,5 +1,6 @@
 import fastify from 'fastify'
 import { Assert as assert } from './Assert.js'
+import {AbstractLogger} from './AbstractLogger.js'
 import Bootstrap from '../../bootstrap/app.js'
 
 class Server{
@@ -8,10 +9,10 @@ class Server{
     ){
         assert.integer(port, { required: true, min: 1000 })
         assert.string(host, { required: true, notEmpty: true })
-        assert.array(controllers, { required: true, notEmpty: true, message: 'controllers param expects not empty array' })
-        assert.array(middlewares, { required: true, notEmpty: true, message: 'middlewares param expects not empty array' })
-        assert.instanceOf(errorMiddleware.prototype, BaseMiddleware)
-        assert.string(cookieSecret)
+        // assert.array(controllers, { required: true, notEmpty: true, message: 'controllers param expects not empty array' })
+        // assert.array(middlewares, { required: true, notEmpty: true, message: 'middlewares param expects not empty array' })
+        // assert.instanceOf(errorMiddleware.prototype, BaseMiddleware)
+        // assert.string(cookieSecret)
         assert.string(reqLimit)
         assert.instanceOf(logger, AbstractLogger)
 
