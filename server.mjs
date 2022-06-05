@@ -14,6 +14,8 @@ start().then(() => {
     controllers: app.controllers,
     logger
   })
+}).then((serverParams) => {
+  logger.info('Server initialized...', serverParams)
 })
 
 // async function main() {
