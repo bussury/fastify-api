@@ -9,8 +9,8 @@ class UserController {
      * @returns all users
      */
     index = async (req, reply) => {
-        req.session.authenticated = true
-        console.log(req.session)
+        // req.session.authenticated = true
+        // console.log(req.session)
         let users = null;
         if(req.query.orderBy) {
              users = await Users.query()
