@@ -1,4 +1,3 @@
-import fastify from 'fastify'
 import knex from 'knex'
 import { Model } from 'objection'
 import { Server, assert } from './core/index.js'
