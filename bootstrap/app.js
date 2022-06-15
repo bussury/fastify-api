@@ -1,6 +1,6 @@
-import fastifyMultipart from '@fastify/multipart'
-import fastifySensible from "@fastify/sensible";
-import formBodyPlugin from '@fastify/formbody'
+// import fastifyMultipart from '@fastify/multipart'
+// import fastifySensible from "@fastify/sensible";
+// import formBodyPlugin from '@fastify/formbody'
 
 import autoLoad from '@fastify/autoload'
 import path from 'path'
@@ -26,9 +26,9 @@ export default async function (app) {
     /**
      * register all plugins before usage
      */
-     await app.register(fastifyMultipart)
-     await app.register(formBodyPlugin)
-     await app.register(fastifySensible)
+    //  await app.register(fastifyMultipart)
+    //  await app.register(formBodyPlugin)
+    //  await app.register(fastifySensible)
 
     
     // 02. plugins
