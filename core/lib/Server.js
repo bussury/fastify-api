@@ -1,4 +1,8 @@
 import fastify from 'fastify'
+import fastifyMultipart from '@fastify/multipart'
+import fastifySensible from "@fastify/sensible";
+import formBodyPlugin from '@fastify/formbody'
+
 import { Assert as assert } from './Assert.js'
 import {AbstractLogger} from './AbstractLogger.js'
 import Bootstrap from '../../bootstrap/app.js'
@@ -22,12 +26,46 @@ class Server{
     }
 }
 
+/**
+ * start server
+ * @param {Object} params
+ * @param {Number} params.port
+ * @param {String} params.host
+ * @param {Array} params.controllers
+ * @param {Array} params.middlewares
+ * @param {BaseMiddleware} params.ErrorMiddleware
+ * @param {String} params.cookieSecret
+ * @param {String} params.reqLimit
+ * @param {AbstractLogger} params.logger
+ */
 function start({ port, host, controllers, middlewares, ErrorMiddleware, cookieSecret, reqLimit, logger }){
     return new Promise (async ( resolve, reject ) => {
+        /**
+         * create fastify app
+         * @type {fastify.FastifyInstance}
+         * @see https://fastify.io/docs/latest/
+         */
         const app = fastify({
             logger: true,
             ignoreTrailingSlash: true
           })
+        /**
+         *  order to register / load app modules
+         *  1. plugins (from the Fastify ecosystem)
+         *  2. your plugins (your custom plugins)
+         *  3. decorators
+         *  4. hooks and middlewares
+         *  5. your services
+         **/ 
+         await app.register(fastifyMultipart)
+         await app.register(formBodyPlugin)
+         await app.register(fastifySensible)
+
+
+        /**
+         * register bootstrap
+         * @type {Bootstrap}
+         */
 
         app.register(Bootstrap)
         return app.listen({port, host}, () => resolve({ port, host }))
