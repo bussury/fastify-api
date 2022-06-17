@@ -57,15 +57,29 @@ function start({ port, host, controllers, middlewares, ErrorMiddleware, cookieSe
          *  4. hooks and middlewares
          *  5. your services
          **/ 
-         await app.register(fastifyMultipart)
-         await app.register(formBodyPlugin)
-         await app.register(fastifySensible)
 
+        /**
+         * register all plugins before usage
+         */
+        await app.register(fastifyMultipart)
+        await app.register(formBodyPlugin)
+        await app.register(fastifySensible)
+
+        /**
+        * error setting
+        */
+        // app.setErrorHandler(ErrorHandler)
+
+
+        // 4. middlewares initialization
+
+        // 5. Services
 
         /**
          * register bootstrap
          * @type {Bootstrap}
          */
+
 
         app.register(Bootstrap)
         return app.listen({port, host}, () => resolve({ port, host }))
