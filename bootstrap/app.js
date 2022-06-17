@@ -59,7 +59,6 @@ export default async function (app) {
         // })
 
     // 4. middlewares
-
     // 5. Services
 
 }
