@@ -4,9 +4,6 @@ import { Server, assert } from './core/index.js'
 import { app, start, knex as KnexConfig }  from './config/index.js'
 import logger from './logger.js'
 
-import bootstrap from './bootstrap/app.js'
-
-
 
 start().then(() => {
   return new Server({
@@ -40,19 +37,6 @@ start().then(() => {
     logger.debug(`Server listened at ${app.host}:${app.port}`)
     logger.debug('---------')
    })
-
-// async function main() {
-//   const app = fastify({
-//     logger: true,
-//     ignoreTrailingSlash: true
-//   })
-//   // await app.register(bootstrap)
-
-//   /**
-//    * return fastify app
-//    */
-//   return app;
-// };
 
 // if (!process.argv.includes('test')) {
 //   const app = await main()
