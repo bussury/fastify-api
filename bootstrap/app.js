@@ -54,9 +54,6 @@ export default async function (app) {
         dir: path.join(base, 'routes/api'),
         options: Object.assign({ prefix: '/api' })
         })
-        // await app.register(autoLoad, {
-        //   dir: join(__dirname, 'routes/web')
-        // })
 
     // 4. middlewares
     // 5. Services
