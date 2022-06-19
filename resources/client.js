@@ -3,7 +3,7 @@ import { createMemoryHistory, createRouter, createWebHistory } from 'vue-router'
 import { createHead } from '@vueuse/head'
 
 import base from './client.vue' 
-import routes from '../routes/web/web.js'
+import routes from '../routes/web.js'
 
 import './assets/main.css'
 
