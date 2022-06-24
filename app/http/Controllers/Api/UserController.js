@@ -8,7 +8,7 @@ class UserController {
      * @param {*} reply 
      * @returns all users
      */
-    index = async (req, reply) => {
+    async index  (req, reply)  {
         // req.session.authenticated = true
         // console.log(req.session)
         let users = null;
@@ -29,7 +29,7 @@ class UserController {
      * @param {*} reply 
      * return users by id
      */
-     show = async (request, reply) => { 
+     async show (request, reply)  { 
         /**
          * parsing id to number
          */
