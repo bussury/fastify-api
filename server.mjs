@@ -14,28 +14,15 @@ start().then(() => {
   })
 }).then((serverParams) => {
   logger.info('Server initialized...', serverParams)
-  logger.debug('--- APP CONFIG ---')
-  logger.debug(`HOST: ${app.host}`)
-  logger.debug(`PORT: ${app.port}`)
-  logger.debug(`NAME: ${app.name}`)
 }).catch((error) =>{
   stdout.write(error.stack)
   logger.error('Server fails to initialize...', error)
 })
   .then(() => { Model.knex(knex(KnexConfig)) })
-  .then(() => { 
-    logger.debug('Database initialized...')
-    logger.debug('--- SQL DATABASE CONFIG ---')
-    logger.debug(`CLIENT: ${KnexConfig.client}`)
-    logger.debug(`USER: ${KnexConfig.connection.user}`)
-    logger.debug(`HOST: ${KnexConfig.connection.host}`)
-    logger.debug(`PORT: ${KnexConfig.connection.port}`)
-    logger.debug(`DATABASE: ${KnexConfig.connection.database}`)
-  })
   .then(() => {
-    logger.debug('---------')
+    logger.debug('--------------------------------')
     logger.debug(`Server listened at ${app.host}:${app.port}`)
-    logger.debug('---------')
+    logger.debug('---------------------------------')
    })
 
 // if (!process.argv.includes('test')) {
