@@ -41,7 +41,7 @@ class BaseController {
       
             if (options.required && !src.hasOwnProperty(propName) && !hasAllowedDefaultData) {
               throw new AppError({
-                ...errorCodes.VALIDATION,
+                ...ErrorCodes.VALIDATION,
                 message: `'${schemaTitle}.${propName}' field is required.`,
                 layer: this.constructor.name
               })
@@ -51,7 +51,7 @@ class BaseController {
               const tmpValidationResult = validator(validationSrc)
               if (!['boolean', 'string'].includes(typeof tmpValidationResult)) {
                 throw new AppError({
-                  ...errorCodes.DEV_IMPLEMENTATION,
+                  ...ErrorCodes.DEV_IMPLEMENTATION,
                   message: `Invalid '${schemaTitle}.${propName}' validation result. Validator should return boolean or string. Fix it !`,
                   layer: this.constructor.name
                 })
@@ -60,14 +60,14 @@ class BaseController {
               const validationResult = tmpValidationResult || hasAllowedDefaultData
               if (typeof validationResult === 'string') {
                 throw new AppError({
-                  ...errorCodes.VALIDATION,
+                  ...ErrorCodes.VALIDATION,
                   message: `Invalid '${schemaTitle}.${propName}' field, ${validationResult}`,
                   meta: { example, expect: description },
                   layer: this.constructor.name
                 })
               } if (validationResult === false) {
                 throw new AppError({
-                  ...errorCodes.VALIDATION,
+                  ...ErrorCodes.VALIDATION,
                   message: `Invalid '${schemaTitle}.${propName}' field`,
                   meta: { example, expect: description },
                   layer: this.constructor.name
