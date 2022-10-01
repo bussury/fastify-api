@@ -23,7 +23,7 @@
     "connect-session-knex": "^3.0.0",
     "faker": "^6.6.6",
     "http-errors": "^2.0.0",
-    "joi": "^17.6.1",
+    "joi": "^17.6.2",
     "knex": "^2.3.0",
     "mysql2": "^2.3.3",
     "objection": "^3.0.1",
@@ -38,10 +38,10 @@
     "@fastify/autoload": "^5.4.0",
     "autoprefixer": "^10.4.12",
     "cross-env": "^7.0.3",
-    "dotenv": "^16.0.2",
-    "fastify": "^4.6.0",
+    "dotenv": "^16.0.3",
+    "fastify": "^4.7.0",
     "nodemon": "^2.0.20",
-    "postcss": "^8.4.16",
+    "postcss": "^8.4.17",
     "tailwindcss": "^3.1.8"
   }
 }
