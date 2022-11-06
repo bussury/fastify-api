@@ -27,10 +27,6 @@ class BaseAction {
                 validator: v => typeof v === 'object',
                 description: 'Object;'
             })),
-            schema: new RequestRule(new Rule({
-                validator: v => typeof v === 'boolean',
-                description: 'Boolean;'
-            }))
         }
     }
 
@@ -64,4 +60,6 @@ class BaseAction {
     }
 }
 
-export {BaseAction}
+export  { 
+    BaseAction 
+}

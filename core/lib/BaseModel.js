@@ -16,7 +16,7 @@ const genericSchema = {
       description: 'string; date;'
     })
   }
-class BaseModel{
+export  class BaseModel{
     constructor (src) {
         const { schema } = this.constructor
     
@@ -76,5 +76,3 @@ function buildModelProps (src, schema, context) {
     const tmpInt = Number(int)
     return !!(tmpInt && Number.isInteger(tmpInt) && tmpInt >= 1)
   }
-
-export {BaseModel}

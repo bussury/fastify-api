@@ -21,7 +21,6 @@ class Server{
         assert.instanceOf(logger, AbstractLogger)
 
         logger.info('Server start initialization...')
-
         return start({ port, host, controllers, middlewares, ErrorMiddleware: errorMiddleware, cookieSecret, reqLimit, logger })
     }
 }
@@ -59,11 +58,26 @@ function start({ port, host, controllers, middlewares, ErrorMiddleware, cookieSe
          **/ 
 
         /**
-         * register all plugins before usage
+         * 1 @Fastify plugins 
+         * register all fastify plugins before usage
          */
         await app.register(fastifyMultipart)
         await app.register(formBodyPlugin)
         await app.register(fastifySensible)
+
+        /**
+         * 2 @Custom plugins
+         * Controllers / modules
+         */
+         try {
+            for (const controller of controllers.map(Controller => new Controller({ app, logger }))) {
+              await controller.init()
+              app.register(controller.router)
+            }
+          } catch (e) {
+            reject(e)
+          }
+
 
         /**
         * error setting

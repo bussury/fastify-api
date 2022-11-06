@@ -4,7 +4,7 @@ import { Assert } from './lib/Assert.js'
 
 import { BaseConfig } from './lib/BaseConfig.js'
 // import { BaseMiddleware } from './lib/BaseMiddleware.js'
-// import { BaseModel } from './lib/BaseModel.js'
+import { BaseModel } from './lib/BaseModel.js'
 import  {AbstractLogger}  from './lib/AbstractLogger.js'
 
 import { AppError } from './lib/AppError.js'
@@ -23,7 +23,7 @@ export  {
 
   BaseConfig,
 //   BaseMiddleware,
-//   BaseModel,
+  BaseModel,
 
   AbstractLogger,
 
