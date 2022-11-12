@@ -1,16 +1,15 @@
 import { assert, AbstractLogger } from '../../../core/index.js'
 export default class BaseController {
     constructor({ logger } = {}){
-
         if (!this.init) throw new Error(`${this.constructor.name} should implement 'init' method.`)
-        if (!this.router) throw new Error(`${this.constructor.name} should implement 'router' getter.`)
+        // if (!this.routes) throw new Error(`${this.constructor.name} should implement 'routes' getter.`)
        
         assert.instanceOf(logger, AbstractLogger)
-        this.logger = logger          
+        this.logger = logger      
     }
     actionRunner(action) {
       assert.func(action, { required: true })
-
+      console.log('action runnner')
       if (!action.hasOwnProperty('accessTag')) {
         throw new Error(`'accessTag' getter not declared in invoked '${action.name}' action`)
       }
@@ -22,7 +21,7 @@ export default class BaseController {
       return async (req, res) => {
         assert.object(req, { required: true })
         assert.object(res, { required: true })
-        assert.func(next, { required: true })
+        // assert.func(next, { required: true })
   
         const ctx = {
           currentUser: req.currentUser,
@@ -33,11 +32,11 @@ export default class BaseController {
           method: req.method,
           url: req.url,
           cookies: { ...req.cookies, ...req.signedCookies },
-          headers: {
-            'Content-Type': req.get('Content-Type'),
-            Referer: req.get('referer'),
-            'User-Agent': req.get('User-Agent')
-          }
+          // headers: {
+          //   'Content-Type': req.get('Content-Type'),
+          //   Referer: req.get('referer'),
+          //   'User-Agent': req.get('User-Agent')
+          // }
         }
   
         try {

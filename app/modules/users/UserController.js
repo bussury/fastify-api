@@ -1,18 +1,25 @@
-import BaseController from './../../http/Controllers/BaseController.js'
+import  BaseController  from './../../http/Controllers/BaseController.js'
 
-import actions from './actions/ListUsersAction.js'
+import actions from './actions/index.js'
 
-export default class UserController extends BaseController {
+export default class UserController extends BaseController{
+    constructor (logger){
+        super(logger)
+    }
+    //  async routes (app) {
+    //      app.get('/api/user',{}, this.actionRunner(actions.ListUsersAction ))
+    //      app.get('/api/user1', (req, res) =>{
+    //         res.send({ hello: 'world' })
+    //     })
+    // }
 
-    async router(app){
-        app.get('/api/user',{}, (req,res) => {
-            return {'app':'testing'}
+     set xRoutes(app){
+        app.get('/api/user1', (req, res) =>{
+            res.send({ hello: 'world' })
         })
     }
-
     async init () {
         this.logger.debug(`${this.constructor.name} initialized...`)
-      }
+    }
     
 }
-

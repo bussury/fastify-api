@@ -70,9 +70,11 @@ function start({ port, host, controllers, middlewares, ErrorMiddleware, cookieSe
          * Controllers / modules
          */
          try {
-            for (const controller of controllers.map(Controller => new Controller({ app, logger }))) {
+            for (const controller of controllers.map(Controller => new Controller({ logger }))) {
               await controller.init()
-              app.register(controller.router)
+              // await controller.routes()
+              // app.register(controller.routes)
+              app.register(controller.xRoutes)
             }
           } catch (e) {
             reject(e)
