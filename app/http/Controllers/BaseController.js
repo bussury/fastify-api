@@ -9,7 +9,6 @@ export default class BaseController {
     }
     actionRunner(action) {
       assert.func(action, { required: true })
-      console.log('action runnner')
       if (!action.hasOwnProperty('accessTag')) {
         throw new Error(`'accessTag' getter not declared in invoked '${action.name}' action`)
       }
