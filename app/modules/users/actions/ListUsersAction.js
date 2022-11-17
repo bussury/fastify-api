@@ -6,20 +6,14 @@ export default class ListUsersAction extends BaseAction {
     }
    
 
-    static async run (req, res){
-        const { query } = req
-        console.log('ACTION PASS', query)
-        res.send({
+    static async run (ctx){
+        const { query } = ctx
+        return this.result({
             data: {'name': 'bussury'},
             headers: {
-                'X-Total-Count': data.total
+                // 'X-Total-Count': data.total it have to come from db
+                'X-Total-Count': 25
             }
         })
-        //  this.result({
-        //     data: {'name': 'bussury'},
-        //     headers: {
-        //         'X-Total-Count': data.total
-        //     }
-        // })
     }
 }

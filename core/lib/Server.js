@@ -2,6 +2,7 @@ import fastify from 'fastify'
 import fastifyMultipart from '@fastify/multipart'
 import fastifySensible from "@fastify/sensible";
 import formBodyPlugin from '@fastify/formbody'
+import fastifyCookie from '@fastify/cookie';
 
 import { Assert as assert } from './Assert.js'
 import {AbstractLogger} from './AbstractLogger.js'
@@ -64,6 +65,11 @@ function start({ port, host, controllers, middlewares, ErrorMiddleware, cookieSe
         await app.register(fastifyMultipart)
         await app.register(formBodyPlugin)
         await app.register(fastifySensible)
+        await app.register(fastifyCookie, {
+          secret: "my-secret", // for cookies signature
+          hook: 'onRequest', // set to false to disable cookie autoparsing or set autoparsing on any of the following hooks: 'onRequest', 'preParsing', 'preHandler', 'preValidation'. default: 'onRequest'
+          parseOptions: {}  // options for parsing cookies
+        })
 
         /**
          * 2 @Custom plugins
@@ -72,8 +78,8 @@ function start({ port, host, controllers, middlewares, ErrorMiddleware, cookieSe
          try {
             for (const controller of controllers.map(Controller => new Controller({ logger }))) {
               await controller.init()
-              // await controller.routes(app)
-              app.register(controller.routes)
+              await controller.routes(app)
+              // app.register(controller.routes)
             }
           } catch (e) {
             reject(e)

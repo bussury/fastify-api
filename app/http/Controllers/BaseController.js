@@ -2,7 +2,7 @@ import { assert, AbstractLogger } from '../../../core/index.js'
 export default class BaseController {
     constructor({ logger } = {}){
         if (!this.init) throw new Error(`${this.constructor.name} should implement 'init' method.`)
-        // if (!this.routes) throw new Error(`${this.constructor.name} should implement 'routes' getter.`)
+        if (!this.routes) throw new Error(`${this.constructor.name} should implement 'routes' getter.`)
        
         assert.instanceOf(logger, AbstractLogger)
         this.logger = logger      
@@ -17,11 +17,10 @@ export default class BaseController {
         throw new Error(`'run' method not declared in invoked '${action.name}' action`)
       }
   
-      return async (req, res) => {
+      return async (req, reply) => {
         assert.object(req, { required: true })
-        assert.object(res, { required: true })
+        assert.object(reply, { required: true })
         // assert.func(next, { required: true })
-  
         const ctx = {
           currentUser: req.currentUser,
           body: req.body,
@@ -39,7 +38,6 @@ export default class BaseController {
         }
   
         try {
-  
           /**
            * check access to action by access tag
            */
@@ -50,30 +48,32 @@ export default class BaseController {
            * fire action
            */
           const response = await action.run(ctx)
-  
           /**
            * set headers
            */
-          if (response.headers) res.set(response.headers)
-  
+          if (response.headers) reply.headers(response.headers)
           /**
            * set cookie
            */
           if (response.cookies && response.cookies.length) {
             for (const cookie of response.cookies) {
-              res.cookie(cookie.name, cookie.value, cookie.options)
+              reply.setCookie(cookie.name, cookie.value, cookie.options)
             }
           }
   
           /**
            * optional redirect
            */
-          if (response.redirect) return res.redirect(response.redirect.status, response.redirect.url)
-  
+          if (response.redirect) return reply.redirect(response.redirect.status, response.redirect.url)
           /**
            * set status and return result to client
            */
-          return res.status(response.status).json({
+          // return reply.status(response.status).json({
+          //   success: response.success,
+          //   message: response.message,
+          //   data: response.data
+          // })
+          return reply.send({
             success: response.success,
             message: response.message,
             data: response.data

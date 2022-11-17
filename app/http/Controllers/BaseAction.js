@@ -30,8 +30,7 @@ class BaseAction {
         }
     }
 
-    static result ( result) {
-        console.log("RESULTS ",result)
+    static result (result) {
         assert.object(result, { notEmpty: true })
         assert.boolean(result.success)
         assert.integer(result.status)
