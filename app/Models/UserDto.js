@@ -1,6 +1,6 @@
-import BaseDto from './../../models/BaseDto.js'
+import BaseDto from './baseModel/BaseDto.js'
 
-export default class UserDto extends BaseDto {
+export  class UserDto extends BaseDto {
 
     constructor(src ={}) {
         super(src)

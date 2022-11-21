@@ -6,9 +6,6 @@ export default class UserController extends BaseController {
     
      async routes (app) {
          app.get('/api/user',{}, this.actionRunner(actions.ListUsersAction ))
-        //  app.get('/api/user', (req, res) =>{
-        //     res.send({ hello: 'world' })
-        // })
     }
 
     async init () {

@@ -1,4 +1,6 @@
-export default class BaseBto {
+import { assert } from "../../../core/index.js"
+
+export default class BaseDto {
     constructor (src = {}) {
         assert.object(src, { required: true })
     

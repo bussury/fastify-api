@@ -16,13 +16,14 @@ class Users extends BaseModel {
     static get jsonSchema() {
         return {
             type: 'object',
-            required: ['username', 'first_name','middle_name','last_name','email','phone'],
+            required: ['username', 'first_name','midle_name','last_name','email','phone','profile_url'],
 
             properties: {
                 id: { type: 'integer' },
                 username: { type: 'string', minLength: 1, maxLength: 255 },
                 fisrt_name: { type: 'string', minLength: 1, maxLength: 255 },
-                middle_name: { type: 'string', minLength: 1, maxLength: 255 },
+                midle_name: { type: 'string', minLength: 1, maxLength: 255 },
+                last_name: { type: 'string', minLength: 1, maxLength: 255 },
                 email: { type: 'string', minLength: 1, maxLength: 255 },
                 profile_url: { type: 'string', minLength: 1, maxLength: 255 },
                 phone: { type: 'string', minLength: 1, maxLength: 255 },

@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
-    "@fastify/autoload": "^5.4.1",
+    "@fastify/autoload": "^5.5.0",
     "autoprefixer": "^10.4.13",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",

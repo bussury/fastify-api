@@ -1,4 +1,5 @@
 import { BaseAction } from "../../../http/Controllers/BaseAction.js";
+import {UserDao} from './../../../models/UserDao.js'
 
 export default class ListUsersAction extends BaseAction {
     static get accessTag () {
@@ -8,12 +9,10 @@ export default class ListUsersAction extends BaseAction {
 
     static async run (ctx){
         const { query } = ctx
+        const data = await UserDao.all({...query})
         return this.result({
-            data: {'name': 'bussury'},
-            headers: {
-                // 'X-Total-Count': data.total it have to come from db
-                'X-Total-Count': 25
-            }
+            data: data,
+            headers: { 'X-Total-Count': data.total }
         })
     }
 }

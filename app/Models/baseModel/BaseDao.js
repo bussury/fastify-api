@@ -1,6 +1,8 @@
 import { Model } from "objection"
+import BaseQuery from "../BaseQuery.js";
+import { assert } from "../../../core/index.js"
 
-export default class BaseDao extends Model {
+export  class BaseDao extends Model {
 
 
       /**
@@ -32,19 +34,24 @@ export default class BaseDao extends Model {
     })
   }
 
+  static get QueryBuilder(){
+    return BaseQuery
+}
+
   /**
    * @param data
    * @returns {{total, results: *[]}}
    */
    static mapPage (data = {}) {
+    
     assert.array(data.results, { required: true })
     assert.integer(data.total, { required: true })
 
     const Dto = this.dto
     assert.func(Dto, { required: true })
-
     return {
-      results: data.results.map(i => new Dto(i)),
+      // results: data.results.map(i => new Dto(i)),
+      results: data.results,
       total: data.total || 0
     }
   }
@@ -55,7 +62,6 @@ export default class BaseDao extends Model {
    */
    static mapObject (data = {}) {
     assert.object(data, { required: true })
-
     const Dto = this.dto
     assert.func(Dto, { required: true })
 
@@ -139,14 +145,15 @@ export default class BaseDao extends Model {
 
 
   static async all ({ page, limit, filter, orderBy } = {}) {
-    assert.integer(page, { required: true })
-    assert.integer(limit, { required: true })
-    assert.object(filter, { required: true })
-    assert.id(filter.userId)
+    // assert.integer(page, { required: true })
+    // assert.integer(limit, { required: true })
+    // assert.object(filter, { required: true })
+    // assert.id(filter.userId)
 
+    console.log(page)
     const data = await this.query()
-      .where({ ...filter })
-      .orderBy(orderBy.field, orderBy.direction)
+      // .where({ ...filter })
+      // .orderBy(orderBy.field, orderBy.direction)
       .page(page, limit)
 
     if (!data.results.length) return this.emptyPageResponse()

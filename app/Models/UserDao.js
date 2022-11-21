@@ -1,13 +1,14 @@
-import { BaseDao } from './../../models/BaseDao'
+import { BaseDao } from './baseModel/BaseDao.js'
+import { UserDto } from './UserDto.js'
 
-export default class UserDao extends BaseDao{
+export  class UserDao extends BaseDao{
 
     static get tableName () {
         return 'users'
     }
     
     static get dto () {
-        return UserDbDto
+        return UserDto
     }
 
       /**

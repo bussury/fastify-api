@@ -2,19 +2,7 @@ import { QueryBuilder } from 'objection';
 
 class BaseQuery extends QueryBuilder{
     
-    // constructor(){
-    //     super()
-    // }
-    async findOrInsert(model) {
-        const result = await this.where(model).first()
     
-        if (!result) {
-          return await this.insert(model)
-        }
-    
-        return result
-      }
-
       async genericQuery(req) {
         let page = req.query.currentPage-1,
             perPage = req.query.perPage
