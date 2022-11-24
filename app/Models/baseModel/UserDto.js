@@ -1,4 +1,4 @@
-import BaseDto from './baseModel/BaseDto.js'
+import BaseDto from './BaseDto.js'
 
 export  class UserDto extends BaseDto {
 
