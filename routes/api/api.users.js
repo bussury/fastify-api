@@ -132,8 +132,9 @@ const updateSchema = {
 
   const userRoutes = async app => {
 
-    app.get('/users', { schema: getAllSchema }, UserController.index)
-    app.get('/users/:userId', { schema:getOneSchema },UserController.show)
+    console.log(this)
+    // app.get('/users', { schema: getAllSchema }, UserController.index)
+    // app.get('/users/:userId', { schema:getOneSchema },UserController.show)
     app.post('/users', { schema: createSchema },UserController.store)
     app.put('/users/:userId', { schema:updateSchema }, UserController.update)
     app.delete('/users/:userId', { schema: deleteSchema }, UserController.delete)

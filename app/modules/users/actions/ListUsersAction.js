@@ -5,8 +5,6 @@ export default class ListUsersAction extends BaseAction {
     static get accessTag () {
         return 'users:list'
     }
-   
-
     static async run (ctx){
         const { query } = ctx
         const data = await UserDao.all({...query})

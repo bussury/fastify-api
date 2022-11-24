@@ -7,8 +7,9 @@ export  class UserDto extends BaseDto {
 
         this.username = src.username
         this.first_name = src.first_name
-        this.middle_name = src.middle_name
-        this.surname = src.surname
+        this.middle_name = src.midle_name
+        this.surname = src.last_name
+        this.phone = src.phone
         this.role = src.role
         this.location = src.location
         // sensitive data

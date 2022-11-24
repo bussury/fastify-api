@@ -21,17 +21,7 @@ class BaseQuery extends QueryBuilder{
     
         return this;
       }
-
-      async findTest() {
-         await this.where('id',10).first()
-    
-        // if (!result) {
-        //   return await this.insert(model)
-        // }
-    
-        return this
-      }
-
+      
       async paginate(currentPage,perPage){
         let paginator = {};
         let promises = [];
@@ -61,7 +51,7 @@ class BaseQuery extends QueryBuilder{
             from: offset,
             to: offset + result.length,
             total: total,
-            data: result
+            result
           }
     
           return paginator;

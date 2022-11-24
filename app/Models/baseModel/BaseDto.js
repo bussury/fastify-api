@@ -6,7 +6,7 @@ export default class BaseDto {
     
         this.id = src.id
         this.userId = src.userId
-        this.createdAt = src.createdAt
-        this.updatedAt = src.updatedAt
+        this.createdAt = src.created_at
+        this.updatedAt = src.updated_at
       }
 }

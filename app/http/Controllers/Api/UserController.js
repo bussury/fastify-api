@@ -19,7 +19,7 @@ class UserController {
           }else{
             users = await Users.query()
                                .paginate(req.query.currentPage,req.query.perPage)
-          }                        
+          }                       
         return reply.send(users)
     }
 

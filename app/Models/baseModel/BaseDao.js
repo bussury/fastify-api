@@ -1,6 +1,6 @@
 import { Model } from "objection"
 import BaseQuery from "../BaseQuery.js";
-import { assert } from "../../../core/index.js"
+import { assert, errorCodes, AppError } from "../../../core/index.js"
 
 export  class BaseDao extends Model {
 
@@ -43,16 +43,16 @@ export  class BaseDao extends Model {
    * @returns {{total, results: *[]}}
    */
    static mapPage (data = {}) {
-    
+
     assert.array(data.results, { required: true })
     assert.integer(data.total, { required: true })
 
     const Dto = this.dto
     assert.func(Dto, { required: true })
     return {
-      // results: data.results.map(i => new Dto(i)),
-      results: data.results,
-      total: data.total || 0
+      results: data.map(i => new Dto(i)),
+      // results: data.results,
+      // total: data.total || 0
     }
   }
 
@@ -145,19 +145,24 @@ export  class BaseDao extends Model {
 
 
   static async all ({ page, limit, filter, orderBy } = {}) {
-    // assert.integer(page, { required: true })
+    // assert.integer(page, { required: false })
     // assert.integer(limit, { required: true })
     // assert.object(filter, { required: true })
     // assert.id(filter.userId)
 
-    console.log(page)
+    console.log('all')
     const data = await this.query()
       // .where({ ...filter })
       // .orderBy(orderBy.field, orderBy.direction)
-      .page(page, limit)
-
-    if (!data.results.length) return this.emptyPageResponse()
-    return this.mapPage(data)
+      // .limit(limit)
+      // .offset(page)
+      .paginate(page,limit)
+      // .page(page, limit)
+      
+      console.log('page')
+    if (!data.length) return this.emptyPageResponse()
+    // return this.mapPage(data)
+    return data
   }
 
   static async count (filter = {}) {
@@ -171,7 +176,7 @@ export  class BaseDao extends Model {
     return Number(result.count)
   }
 
-  static async findById (id) {
+  static async getdById (id) {
     assert.id(id, { required: true })
 
     const data = await this.query().findById(id)

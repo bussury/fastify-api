@@ -1,4 +1,4 @@
-import * as ErrorCodes from './lib/ErrorCode.js'
+import  errorCodes from './lib/ErrorCode.js'
 import { Assert } from './lib/Assert.js'
 // import { ValidatorNano } from './lib/validator/ValidatorNano'
 
@@ -17,7 +17,7 @@ import { Logger } from './lib/Logger.js'
 // import { CookieEntity } from './lib/CookieEntity'
 
 export  {
-  ErrorCodes,
+  errorCodes,
   Assert as assert,
 //   ValidatorNano,
 
