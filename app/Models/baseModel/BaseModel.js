@@ -11,13 +11,7 @@ class BaseModel extends Model{
     static get QueryBuilder(){
         return BaseQuery
     }
-    all(){}
-    save(){}
-    update(){}
-    delete(){}
-    // paginate(){
-    //     return this.$query()
-    // }
+
 }
 
 export default BaseModel

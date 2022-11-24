@@ -1,4 +1,4 @@
-import { BaseModel, Rule } from "./../../core/index";
+import { BaseModel, Rule } from "./../../core/index.js";
 
 const schema = {
     ...BaseModel.genericSchema,

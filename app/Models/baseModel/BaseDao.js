@@ -1,5 +1,5 @@
 import { Model } from "objection"
-import BaseQuery from "../BaseQuery.js";
+import BaseQuery from "./BaseQuery.js";
 import { assert, errorCodes, AppError } from "../../../core/index.js"
 
 export  class BaseDao extends Model {

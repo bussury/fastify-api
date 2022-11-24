@@ -1,4 +1,4 @@
-class AssertionError extends Error {
+export class AssertionError extends Error {
   constructor (message) {
     super(message)
     this.message = message || 'Assertion error'
@@ -7,4 +7,4 @@ class AssertionError extends Error {
   }
 }
 
-export  { AssertionError }
+// export  { AssertionError }

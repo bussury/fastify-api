@@ -9,7 +9,7 @@ const validTypes = [Number, String, Object, Array, Boolean, Function]
 
 const isObject =  (v) => v && typeof v === 'object' && !Array.isArray(v)
 
-class Assert {
+export class Assert {
 
     static fail (actual, expected, message) {
         throw new AssertionError(message || `Failed value: ${util.inspect(actual)}; ${expected !== undefined ? `Expect: ${util.inspect(expected.name || expected)}` : ''}`)
@@ -134,4 +134,4 @@ class Assert {
         if (value && !URL_REGEXP.test(value)) Assert.fail(value, 'URL', message)
     }
 }
-export  {Assert}
+// export  {Assert}

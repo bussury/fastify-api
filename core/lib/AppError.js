@@ -1,5 +1,5 @@
 
-class AppError extends Error {
+export class AppError extends Error {
     constructor (options) {
         if (!options || !options.description) throw new Error('description param required')
     
@@ -15,4 +15,3 @@ class AppError extends Error {
       }
 }
 
-export {AppError}
