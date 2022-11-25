@@ -1,6 +1,6 @@
 import knex from 'knex'
 import { Model } from 'objection'
-import { Server, assert } from './core/index.js'
+import { Server } from './core/index.js'
 import { app, start, knex as KnexConfig }  from './config/index.js'
 import controllers from './app/http/Controllers/Controller.js'
 import logger from './logger.js'
@@ -19,7 +19,7 @@ start()
       logger.info('Server initialized...', serverParams)
     }).catch((error) =>{
       // stdout.write(error.stack)
-      console.log(error)
+      // console.log(error)
       logger.error('Server fails to initialize...', error)
     })
   .then(() => { Model.knex(knex(KnexConfig)) })

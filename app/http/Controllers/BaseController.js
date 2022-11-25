@@ -30,11 +30,11 @@ export default class BaseController {
           method: req.method,
           url: req.url,
           cookies: { ...req.cookies, ...req.signedCookies },
-          // headers: {
-          //   'Content-Type': req.get('Content-Type'),
-          //   Referer: req.get('referer'),
-          //   'User-Agent': req.get('User-Agent')
-          // }
+          headers: {
+            // 'Content-Type': req.get('Content-Type'),
+            // Referer: req.get('referer'),
+            // 'User-Agent': req.get('User-Agent')
+          }
         }
   
         try {
@@ -60,10 +60,11 @@ export default class BaseController {
               reply.setCookie(cookie.name, cookie.value, cookie.options)
             }
           }
-  
+
           /**
            * optional redirect
            */
+
           if (response.redirect) return reply.redirect(response.redirect.status, response.redirect.url)
           /**
            * set status and return result to client

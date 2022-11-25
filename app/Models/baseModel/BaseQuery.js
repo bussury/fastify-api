@@ -51,7 +51,7 @@ class BaseQuery extends QueryBuilder{
             from: offset,
             to: offset + result.length,
             total: total,
-            result
+            results: result
           }
     
           return paginator;

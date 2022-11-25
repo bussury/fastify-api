@@ -29,18 +29,17 @@ export  class BaseDao extends BaseModel {
     // assert.object(filter, { required: true })
     // assert.id(filter.userId)
 
-    console.log('all')
+    const offset = (page) * limit;
     const data = await this.query()
-      // .where({ ...filter })
+      .where({ ...filter })
       // .orderBy(orderBy.field, orderBy.direction)
-      // .limit(limit)
-      // .offset(page)
-      .paginate(page,limit)
+      .limit(limit)
+      .offset(page)
+      // .paginate(page,limit)
       // .page(page, limit)
-      
-      console.log('page')
+
+    // if (!data.results.length) return this.emptyPageResponse()
     if (!data.length) return this.emptyPageResponse()
-    // return this.mapPage(data)
     return data
   }
 
@@ -56,12 +55,12 @@ export  class BaseDao extends BaseModel {
   }
 
   static async getdById (id) {
-    assert.id(id, { required: true })
-
+    // assert.id(id, { required: true })
     const data = await this.query().findById(id)
     if (!data) throw this.errorEmptyResponse()
 
-    return this.mapObject(data)
+    return data
+    // return this.mapObject(data)
   }
 
   static remove (id) {

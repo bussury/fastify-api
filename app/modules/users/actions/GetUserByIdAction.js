@@ -1,5 +1,5 @@
 import { BaseAction } from "../../../http/Controllers/BaseAction.js";
-import {UserDao} from './../../../models/UserDao.js'
+import { UserDao } from './../../../models/UserDao.js'
 
 export default class GetUserByIdAction extends BaseAction {
     static get accessTag () {
@@ -14,7 +14,6 @@ export default class GetUserByIdAction extends BaseAction {
         }
       }
       static async run (ctx) {
-    
         const model = await UserDao.getdById(ctx.params.id)
         return this.result({ data: model })
       }

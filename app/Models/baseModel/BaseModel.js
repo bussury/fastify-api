@@ -28,6 +28,7 @@ class BaseModel extends Model{
     
     static query () {
         return super.query.apply(this, arguments).onError(error => {
+          console.log(error)
           return Promise.reject(wrapError(error))
             .catch(error => {
               error = error.nativeError || error

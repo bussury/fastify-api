@@ -33,7 +33,6 @@ class UserController {
         /**
          * parsing id to number
          */
-        console.log(request.session)
         const { params: { userId } } = request;
         const id = Number(userId)
 
