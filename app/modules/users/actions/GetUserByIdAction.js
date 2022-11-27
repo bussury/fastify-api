@@ -14,7 +14,7 @@ export default class GetUserByIdAction extends BaseAction {
         }
       }
       static async run (ctx) {
-        const model = await UserDao.getdById(ctx.params.id)
+        const model = await UserDao.getdById(Number(ctx.params.id))
         return this.result({ data: model })
       }
 }

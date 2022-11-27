@@ -20,7 +20,6 @@ export default class BaseController {
       return async (req, reply) => {
         assert.object(req, { required: true })
         assert.object(reply, { required: true })
-        // assert.func(next, { required: true })
         const ctx = {
           currentUser: req.currentUser,
           body: req.body,
@@ -69,18 +68,13 @@ export default class BaseController {
           /**
            * set status and return result to client
            */
-          // return reply.status(response.status).json({
-          //   success: response.success,
-          //   message: response.message,
-          //   data: response.data
-          // })
           return reply.send({
             success: response.success,
             message: response.message,
             data: response.data
           })
         } catch (error) {
-          error.req = ctx
+           reply.send(error)
         }
       }
     }

@@ -24,17 +24,19 @@ export  class BaseDao extends BaseModel {
 
 
   static async all ({ page, limit, filter, orderBy } = {}) {
-    // assert.integer(page, { required: false })
+    let current_page = page - 1
+    assert.integer(Number(current_page), { required: false })
     // assert.integer(limit, { required: true })
     // assert.object(filter, { required: true })
     // assert.id(filter.userId)
 
-    const offset = (page) * limit;
+    console.log(current_page)
+    const offset = (current_page) * limit;
     const data = await this.query()
       .where({ ...filter })
       // .orderBy(orderBy.field, orderBy.direction)
       .limit(limit)
-      .offset(page)
+      .offset(current_page)
       // .paginate(page,limit)
       // .page(page, limit)
 
@@ -56,11 +58,9 @@ export  class BaseDao extends BaseModel {
 
   static async getdById (id) {
     // assert.id(id, { required: true })
-    const data = await this.query().findById(id)
+    const data = await this.query().findById(id).throwIfNotFound()
     if (!data) throw this.errorEmptyResponse()
-
     return data
-    // return this.mapObject(data)
   }
 
   static remove (id) {

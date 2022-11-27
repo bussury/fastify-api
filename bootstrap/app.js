@@ -43,7 +43,7 @@ export default async function (app) {
     /**
      * error setting
      */
-     app.setErrorHandler(ErrorHandler)
+    //  app.setErrorHandler(ErrorHandler)
      
 
     /**

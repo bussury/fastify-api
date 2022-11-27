@@ -1,8 +1,9 @@
-import { Model } from "objection";
+import objection from "objection";
 import BaseQuery from "./BaseQuery.js";
 import { assert, errorCodes, AppError } from "../../../core/index.js"
 
-class BaseModel extends Model{
+const { NotFoundError, NotNullViolationError, ValidationError, UniqueViolationError} = objection
+class BaseModel extends objection.Model{
     
     constructor(){
         super()
@@ -28,11 +29,17 @@ class BaseModel extends Model{
     
     static query () {
         return super.query.apply(this, arguments).onError(error => {
-          console.log(error)
-          return Promise.reject(wrapError(error))
+          return Promise.reject(error)
             .catch(error => {
               error = error.nativeError || error
-    
+        
+              if (error instanceof NotFoundError) {
+                throw new AppError({
+                  ...errorCodes.NOT_FOUND,
+                  // message: error.message,
+                  layer: 'DAO',
+                })
+              }
               if (error instanceof UniqueViolationError) {
                 throw new AppError({
                   ...errorCodes.DB_DUPLICATE_CONFLICT,
