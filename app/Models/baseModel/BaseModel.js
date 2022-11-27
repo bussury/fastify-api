@@ -36,7 +36,7 @@ class BaseModel extends objection.Model{
               if (error instanceof NotFoundError) {
                 throw new AppError({
                   ...errorCodes.NOT_FOUND,
-                  // message: error.message,
+                  message: error.message,
                   layer: 'DAO',
                 })
               }
