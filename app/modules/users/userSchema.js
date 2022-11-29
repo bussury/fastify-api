@@ -1,10 +1,8 @@
-import UserController from '../../app/http/Controllers/Api/UserController.js'
-
 const userProperties = {
     id: { type: 'integer' },
     username: { type: 'string' },
     first_name: { type: 'string' },
-    middle_name: { type: 'string' },
+    midle_name: { type: 'string' },
     last_name: { type: 'string' },
     email: { type: 'string' },
     phone: { type: 'string' },
@@ -18,17 +16,9 @@ const tags = ['user'];
 const paramsJsonSchema = {
   type: 'object',
   properties: {
-    userId: { type: 'number' }
+    id: { type: 'number' }
   },
-  required: ['userId']
-};
-
-const queryStringJsonSchema = {
-    type: 'object',
-    properties: {
-      filter: { type: 'string' }
-    },
-    required: ['filter']
+  required: ['id']
 };
 
 const bodyCreateJsonSchema = {
@@ -47,35 +37,12 @@ const bodyUpdateJsonSchema = {
     type: 'object',
     properties: userProperties
 };
-const schemaBody =  {
-    type: "object",
-    required: ["id"],
-    properties: {
-      id: { type: "number" },
-      username: { type: "string" },
-      first_name: { type: 'string' },
-      middle_name: { type: 'string' },
-      last_name: { type: 'string' },
-      email: { type: 'string' },
-      phone: { type: 'string' },
-      pofile_url: { type: 'string' },
-    },
-}
-
-
-const getAllSchema = {  
+export const getAllSchema = {  
     tags,
     response: {
         200: {
           type: 'object',
           properties:{
-            total:{type: 'number'}, 
-            per_page:{type: 'number'},
-            current_page:{type: 'number'},
-            last_page:{type: 'number'},
-            from:{type: 'number'},
-            to:{type: 'number'},
-            total:{type: 'number'},
             data:{ 
                 type:'array',
                 items:{
@@ -88,16 +55,21 @@ const getAllSchema = {
         }
   }
 }
-const getOneSchema = {
+
+export const getOneSchema = {
+    tags,
     params: paramsJsonSchema,
     response: {
         200: {
             type: 'object',
-            properties: userProperties
+            properties: {
+              data: userProperties
+            }
         }
     }
 }
-const createSchema = {
+
+export const createSchema = {
     tags,
     body: bodyCreateJsonSchema,
     response: {
@@ -108,7 +80,7 @@ const createSchema = {
     }
 };
 
-const updateSchema = {
+export const updateSchema = {
     tags,
     params: paramsJsonSchema,
     body: bodyUpdateJsonSchema,
@@ -119,7 +91,7 @@ const updateSchema = {
       }
     }
   };
-  const deleteSchema = {
+  export const deleteSchema = {
     tags,
     params: paramsJsonSchema,
     response: {
@@ -129,17 +101,3 @@ const updateSchema = {
       // },
     }
   };
-
-  const userRoutes = async app => {
-
-
-    // app.get('/users', { schema: getAllSchema }, UserController.index)
-    // app.get('/users/:userId', { schema:getOneSchema },UserController.show)
-    // app.post('/users', { schema: createSchema },UserController.store)
-    // app.put('/users/:userId', { schema:updateSchema }, UserController.update)
-    // app.delete('/users/:userId', { schema: deleteSchema }, UserController.delete)
-    app.get('/users/tests', UserController.testNewFunction)
-
-}
-
-export default userRoutes

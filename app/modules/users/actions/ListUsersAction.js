@@ -7,10 +7,10 @@ export default class ListUsersAction extends BaseAction {
     }
     static async run (ctx){
         const { query } = ctx
-        const data = await UserDao.all({...query})
+        const users = await UserDao.all({...query})
         return this.result({
-            data: data,
-            headers: { 'X-Total-Count': data.total }
+            data: users,
+            headers: { 'X-Total-Count': users.length }
         })
     }
 }

@@ -68,11 +68,7 @@ export default class BaseController {
           /**
            * set status and return result to client
            */
-          return reply.send({
-            success: response.success,
-            message: response.message,
-            data: response.data
-          })
+          return reply.code(response.status).send({...response })
         } catch (error) {
            reply.send(error)
         }
