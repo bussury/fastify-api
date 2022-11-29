@@ -8,7 +8,7 @@ export  class UserDao extends BaseDao{
     static get jsonSchema() {
       return {
           type: 'object',
-          required: ['username', 'first_name','midle_name','last_name','email','phone','profile_url'],
+          required: ['username', 'first_name','midle_name','last_name','email','phone',],
 
           properties: {
               id: { type: 'integer' },

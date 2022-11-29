@@ -32,7 +32,7 @@ class BaseModel extends objection.Model{
           return Promise.reject(error)
             .catch(error => {
               error = error.nativeError || error
-        
+         
               if (error instanceof NotFoundError) {
                 throw new AppError({
                   ...errorCodes.NOT_FOUND,
@@ -52,6 +52,14 @@ class BaseModel extends objection.Model{
                 throw new AppError({
                   ...errorCodes.DB_NOTNULL_CONFLICT,
                   message: `Not null conflict failed for table '${error.table}' and column '${error.column}'`,
+                  layer: 'DAO'
+                })
+              }
+
+              if (error instanceof ValidationError) {
+                throw new AppError({
+                  ...errorCodes.DB_NOTNULL_CONFLICT,
+                  message: ` must have required property '${error.table}' and column '${error.column}'`,
                   layer: 'DAO'
                 })
               }

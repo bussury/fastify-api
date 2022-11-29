@@ -6,11 +6,11 @@ export  class BaseDao extends BaseModel {
 
   static async create (data = {}) {
     assert.object(data, { required: true })
-    this.verifyUserId(data)
+    // this.verifyUserId(data)
 
     const result = await this.query().insert(data)
 
-    return this.mapObject(result)
+    return result
   }
 
   static async update (id, data = {}) {

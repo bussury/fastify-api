@@ -26,7 +26,7 @@ const bodyCreateJsonSchema = {
     properties: userProperties,
     required: ['username', 
                'first_name', 
-               'middle_name', 
+               'midle_name', 
                'last_name',
                'email',
                'phone'
