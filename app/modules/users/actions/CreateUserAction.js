@@ -6,7 +6,7 @@ export default class CreateUserAction extends BaseAction {
         return 'users:create'
     }
     static async run (ctx){
-        const user = UserDao.create({
+        const user = await UserDao.create({
             ...ctx.body
         })
         /**

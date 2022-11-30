@@ -1,4 +1,4 @@
-import objection from "objection";
+import objection, { val } from "objection";
 import BaseQuery from "./BaseQuery.js";
 import { assert, errorCodes, AppError } from "../../../core/index.js"
 
@@ -31,8 +31,7 @@ class BaseModel extends objection.Model{
         return super.query.apply(this, arguments).onError(error => {
           return Promise.reject(error)
             .catch(error => {
-              error = error.nativeError || error
-         
+              error =  error ||error.nativeError
               if (error instanceof NotFoundError) {
                 throw new AppError({
                   ...errorCodes.NOT_FOUND,
@@ -40,10 +39,15 @@ class BaseModel extends objection.Model{
                   layer: 'DAO',
                 })
               }
+
               if (error instanceof UniqueViolationError) {
+                const constraint =  error.constraint
+                // const table = constraint.split('.')[0]
+                const column = constraint.split('.')[1].split('_')[1]
+              
                 throw new AppError({
                   ...errorCodes.DB_DUPLICATE_CONFLICT,
-                  message: `Column '${error.columns}' duplicate in '${error.table}' table`,
+                  message: ` '${column}' duplicate / exists`,
                   layer: 'DAO'
                 })
               }
@@ -55,15 +59,7 @@ class BaseModel extends objection.Model{
                   layer: 'DAO'
                 })
               }
-
-              if (error instanceof ValidationError) {
-                throw new AppError({
-                  ...errorCodes.DB_NOTNULL_CONFLICT,
-                  message: ` must have required property '${error.table}' and column '${error.column}'`,
-                  layer: 'DAO'
-                })
-              }
-    
+     
               throw new AppError({ ...errorCodes.DB, message: error.message, layer: 'DAO' })
             })
         })

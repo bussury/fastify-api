@@ -8,6 +8,8 @@ import { Assert as assert } from './Assert.js'
 import {AbstractLogger} from './AbstractLogger.js'
 import Bootstrap from '../../bootstrap/app.js'
 
+import ErrorHandler from './../../app/exceptions/handler.js'
+
 class Server{
     constructor(
         { port, host, controllers, middlewares, errorMiddleware, cookieSecret, reqLimit = '5mb', logger }
