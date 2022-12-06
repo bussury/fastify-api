@@ -54,7 +54,7 @@ export  class BaseDao extends BaseModel {
     return Number(result.count)
   }
 
-  static async getdById (id) {
+  static async getById (id) {
     assert.id(id, { required: true })
     const data = await this.query().findById(id).throwIfNotFound({message:`item with ${id} not found`})
     if (!data) throw this.errorEmptyResponse()

@@ -1,6 +1,5 @@
 import connection from './config.js';
 
-console.log(connection)
 export default  {
 // module.exports = {
   development: {

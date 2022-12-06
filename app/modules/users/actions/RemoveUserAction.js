@@ -14,10 +14,9 @@ export default class RemoveUserAction extends BaseAction {
          */
         
         // @ TODO
-        // const model = await UserDao.baseGetById(id)
+        const user = await UserDao.getById(id)
         // await updateUserPolicy(model, currentUser)
-        await UserDao.remove(id)
-
-         return this.result({ message: `${id} was removed` })
+         await UserDao.remove(id)
+         return this.result({ message: `user with an id ${id} was removed` })
     }
 }
