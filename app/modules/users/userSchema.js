@@ -94,10 +94,4 @@ export const updateSchema = {
   export const deleteSchema = {
     tags,
     params: paramsJsonSchema,
-    response: {
-      // 200: {
-      //   type: 'object',
-      //   properties: userProperties
-      // },
-    }
   };

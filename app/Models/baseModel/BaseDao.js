@@ -63,7 +63,6 @@ export  class BaseDao extends BaseModel {
 
   static remove (id) {
     assert.id(id, { required: true })
-
     return this.query().deleteById(id)
   }
 
