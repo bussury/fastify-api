@@ -104,7 +104,7 @@ function start({ port, host, controllers, middlewares, ErrorMiddleware, cookieSe
          */
 
 
-        app.register(Bootstrap)
+        // app.register(Bootstrap)
         return app.listen({port, host}, () => resolve({ port, host }))
     })
 }

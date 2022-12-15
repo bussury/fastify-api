@@ -3,15 +3,11 @@ import {UserDao} from '../../../models/UserDao.js'
 
 export default class UpdateUserAction extends BaseAction {
     static get accessTag () {
-        return 'users:create'
+        return 'users:update'
     }
     static async run (ctx){
-        const user = await UserDao.create({
-            ...ctx.body
-        })
-        /**
-         * make email confirmation
-         */
+        const { currentUser, body } = ctx
+        const user = await UserDao.update(ctx.params.id,body)
         return this.result({ data: user })
     }
 }
