@@ -34,11 +34,10 @@ class Server{
  * @param {Array} params.controllers
  * @param {Array} params.middlewares
  * @param {BaseMiddleware} params.ErrorMiddleware
- * @param {String} params.cookieSecret
  * @param {String} params.reqLimit
  * @param {AbstractLogger} params.logger
  */
-function start({ port, host, controllers, middlewares, ErrorMiddleware, cookieSecret, reqLimit, logger }){
+function start({ port, host, controllers, middlewares, ErrorMiddleware, reqLimit, logger }){
     return new Promise (async ( resolve, reject ) => {
         /**
          * create fastify app
@@ -72,6 +71,17 @@ function start({ port, host, controllers, middlewares, ErrorMiddleware, cookieSe
         })
 
         /**
+          * middlewares initialization
+        */
+          try {
+            for (const middleware of middlewares.map(Middleware => new Middleware({ logger }))) {
+              await middleware.init()
+              app.use(middleware.handler())
+            }
+          } catch (e) {
+            return reject(e)
+          }
+        /**
          * 2 @Custom plugins
          * Controllers / modules
          */
@@ -85,14 +95,6 @@ function start({ port, host, controllers, middlewares, ErrorMiddleware, cookieSe
             reject(e)
           }
 
-
-        /**
-        * error setting
-        */
-        // app.setErrorHandler(ErrorHandler)
-
-
-        // 4. middlewares initialization
 
         // 5. Services
 

@@ -1,5 +1,6 @@
 import app from './app.js'
 import knex from './knex.js'
+import session from './session.js'
 
 const asyncConfig = [
     app,
@@ -22,5 +23,6 @@ function start() {
 export {
     app,
     start,
-    knex
+    knex,
+    session,
 }

@@ -3,6 +3,7 @@ import { Model } from 'objection'
 import { Server } from './core/index.js'
 import { app, start, knex as KnexConfig }  from './config/index.js'
 import controllers from './app/http/Controllers/Controller.js'
+import Middleware from './app/http/Middleware/index.js'
 import logger from './logger.js'
 
 
@@ -12,6 +13,7 @@ start()
         port: Number(app.port),
         host: app.host,
         controllers: controllers,
+        middlewares: Middleware,
         logger
       })
     })
