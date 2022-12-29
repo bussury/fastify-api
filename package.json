@@ -19,7 +19,7 @@
     "@fastify/multipart": "^7.3.0",
     "@fastify/sensible": "^5.2.0",
     "@fastify/session": "^10.1.0",
-    "axios": "^1.2.1",
+    "axios": "^1.2.2",
     "bcrypt": "^5.1.0",
     "connect-session-knex": "^3.0.0",
     "http-errors": "^2.0.0",
@@ -28,7 +28,7 @@
     "mysql2": "^2.3.3",
     "objection": "^3.0.1",
     "pino": "^8.8.0",
-    "vite": "^4.0.1",
+    "vite": "^4.0.3",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6",
     "vuex": "^4.1.0"
