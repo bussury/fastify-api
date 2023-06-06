@@ -1,7 +1,7 @@
 import connection from './config.js';
 
+
 export default  {
-// module.exports = {
   development: {
       client: 'mysql2',
       connection,

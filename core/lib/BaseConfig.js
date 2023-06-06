@@ -11,7 +11,6 @@ const warnLogger = pino({
     name: 'config-env-warning',
     ...(process.env.NODE_ENV === 'development' && { prettyPrint: { translateTime: 'SYS:standard' } })
 })
-
 class BaseConfig{
     async init () {
         throw new Error(`${this.constructor.name} should implement 'init' method.`)
