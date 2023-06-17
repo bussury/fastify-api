@@ -54,7 +54,7 @@ function start({ port, host, controllers, middlewares, ErrorMiddleware, reqLimit
          *  2. your plugins (your custom plugins)
          *  3. decorators
          *  4. hooks and middlewares
-         *  5. your services
+         *  5. your services and routes
          **/ 
 
         /**
@@ -76,7 +76,8 @@ function start({ port, host, controllers, middlewares, ErrorMiddleware, reqLimit
           try {
             for (const middleware of middlewares.map(Middleware => new Middleware({ logger }))) {
               await middleware.init()
-              app.use(middleware.handler())
+              app.register(middleware.handler())
+              // app.use(middleware.handler())
             }
           } catch (e) {
             return reject(e)
@@ -89,7 +90,6 @@ function start({ port, host, controllers, middlewares, ErrorMiddleware, reqLimit
             for (const controller of controllers.map(Controller => new Controller({ logger }))) {
               await controller.init()
               await controller.routes(app)
-              // app.register(controller.routes)
             }
           } catch (e) {
             reject(e)

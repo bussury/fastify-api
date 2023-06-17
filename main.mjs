@@ -1,7 +1,7 @@
 import knex from 'knex'
 import { Model } from 'objection'
 import { Server } from './core/index.js'
-import { app, start, knex as KnexConfig }  from './config/index.js'
+import { app, start, knex as KnexConfig }  from './plugins/index.js'
 import controllers from './app/http/Controllers/Controller.js'
 import Middleware from './app/http/Middleware/index.js'
 import logger from './logger.js'

@@ -21,7 +21,7 @@ const knex = Knex(configEnvironment);
 /**
  * @param {import('fastify').FastifyInstance} fastify 
  */
-const appSession = async (fastify) => {
+  async function appSession (fastify, opts) {
     
     
     fastify.register(cookies);
