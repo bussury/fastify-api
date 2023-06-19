@@ -21,7 +21,6 @@ start()
       logger.info('Server initialized...', serverParams)
     }).catch((error) =>{
       // stdout.write(error.stack)
-      // console.log(error)
       logger.error('Server fails to initialize...', error)
     })
   .then(() => { Model.knex(knex(KnexConfig)) })

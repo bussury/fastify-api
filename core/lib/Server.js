@@ -77,7 +77,6 @@ function start({ port, host, controllers, middlewares, ErrorMiddleware, reqLimit
             for (const middleware of middlewares.map(Middleware => new Middleware({ logger }))) {
               await middleware.init()
               app.register(middleware.handler())
-              // app.use(middleware.handler())
             }
           } catch (e) {
             return reject(e)

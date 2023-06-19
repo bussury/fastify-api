@@ -9,5 +9,5 @@ import fp from 'fastify-plugin';
    
 // };
 
-async function email (fastify) {}
+async function email (fastify, opts) {}
 export default fp(email)
