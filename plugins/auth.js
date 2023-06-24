@@ -10,8 +10,10 @@ async function appAuthentication(fastify,opts)  {
     const revokedTokens =  new Map()
 
     fastify.register(fastifyJwt, {
-        
+
     })
+    fastify.decorateRequest()
+    fastify.decorateRequest()
    
 }
 
