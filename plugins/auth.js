@@ -12,6 +12,7 @@ async function appAuthentication(fastify,opts)  {
     fastify.register(fastifyJwt, {
 
     })
+    
     fastify.decorateRequest()
     fastify.decorateRequest()
    
