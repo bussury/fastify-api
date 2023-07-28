@@ -17,7 +17,7 @@
     "@fastify/cookie": "^8.3.0",
     "@fastify/formbody": "^7.4.0",
     "@fastify/jwt": "^7.2.0",
-    "@fastify/multipart": "^7.7.1",
+    "@fastify/multipart": "^7.7.3",
     "@fastify/sensible": "^5.2.0",
     "@fastify/session": "^10.4.0",
     "axios": "^1.4.0",
@@ -27,9 +27,9 @@
     "joi": "^17.9.2",
     "knex": "^2.5.1",
     "mysql2": "^3.5.2",
-    "objection": "^3.0.4",
-    "pino": "^8.14.1",
-    "vite": "^4.4.4",
+    "objection": "^3.1.1",
+    "pino": "^8.14.2",
+    "vite": "^4.4.7",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4",
     "vuex": "^4.1.0"
@@ -39,9 +39,9 @@
     "autoprefixer": "^10.4.14",
     "cross-env": "^7.0.3",
     "dotenv": "^16.3.1",
-    "fastify": "^4.20.0",
+    "fastify": "^4.21.0",
     "nodemon": "^3.0.1",
-    "postcss": "^8.4.26",
+    "postcss": "^8.4.27",
     "tailwindcss": "^3.3.3"
   }
 }
