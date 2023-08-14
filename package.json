@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@fastify/autoload": "^5.7.1",
-    "autoprefixer": "^10.4.14",
+    "autoprefixer": "^10.4.15",
     "cross-env": "^7.0.3",
     "dotenv": "^16.3.1",
     "fastify": "^4.21.0",
