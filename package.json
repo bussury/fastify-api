@@ -14,13 +14,13 @@
     "test": "tap resources/test/test.js"
   },
   "dependencies": {
-    "@fastify/cookie": "^9.0.4",
+    "@fastify/cookie": "^9.1.0",
     "@fastify/formbody": "^7.4.0",
     "@fastify/jwt": "^7.2.1",
-    "@fastify/multipart": "^7.7.3",
+    "@fastify/multipart": "^8.0.0",
     "@fastify/sensible": "^5.3.0",
     "@fastify/session": "^10.5.0",
-    "axios": "^1.5.0",
+    "axios": "^1.5.1",
     "bcrypt": "^5.1.1",
     "connect-session-knex": "^3.0.1",
     "http-errors": "^2.0.0",
@@ -31,17 +31,17 @@
     "pino": "^8.15.1",
     "vite": "^4.4.9",
     "vue": "^3.3.4",
-    "vue-router": "^4.2.4",
+    "vue-router": "^4.2.5",
     "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@fastify/autoload": "^5.7.1",
-    "autoprefixer": "^10.4.15",
+    "autoprefixer": "^10.4.16",
     "cross-env": "^7.0.3",
     "dotenv": "^16.3.1",
     "fastify": "^4.23.2",
     "nodemon": "^3.0.1",
-    "postcss": "^8.4.29",
+    "postcss": "^8.4.30",
     "tailwindcss": "^3.3.3"
   }
 }
