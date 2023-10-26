@@ -28,20 +28,13 @@
     "knex": "^3.0.1",
     "mysql2": "^3.6.2",
     "objection": "^3.1.2",
-    "pino": "^8.16.1",
-    "vite": "^4.5.0",
-    "vue": "^3.3.6",
-    "vue-router": "^4.2.5",
-    "vuex": "^4.1.0"
+    "pino": "^8.16.1"
   },
   "devDependencies": {
     "@fastify/autoload": "^5.8.0",
-    "autoprefixer": "^10.4.16",
     "cross-env": "^7.0.3",
     "dotenv": "^16.3.1",
     "fastify": "^4.24.3",
-    "nodemon": "^3.0.1",
-    "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.3"
+    "nodemon": "^3.0.1"
   }
 }
