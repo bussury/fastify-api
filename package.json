@@ -20,7 +20,7 @@
     "@fastify/multipart": "^8.0.0",
     "@fastify/sensible": "^5.5.0",
     "@fastify/session": "^10.5.0",
-    "axios": "^1.5.1",
+    "axios": "^1.6.0",
     "bcrypt": "^5.1.1",
     "connect-session-knex": "^3.0.1",
     "http-errors": "^2.0.0",
