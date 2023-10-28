@@ -1,5 +1,5 @@
 import { BaseAction } from "../../../http/Controllers/BaseAction.js";
-import { UserDao } from "../../../../models/UserDao.js";
+import { UserDao } from "./../../../Models/UserDao.js";
 
 export default class ListUsersAction extends BaseAction {
   static get accessTag() {

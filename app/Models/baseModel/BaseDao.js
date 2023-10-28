@@ -32,13 +32,13 @@ export class BaseDao extends BaseModel {
     assert.object(filter, { required: false });
     // assert.id(filter.userId)
 
-    const offset = current_page * limit;
+    // const offset = current_page * limit;
     const data = await this.query()
       .where({ ...filter })
-      // .orderBy(orderBy.field, orderBy.direction)
-      .limit(limit)
-      .offset(offset);
-
+      .page(page, limit);
+    // .orderBy(orderBy.field, orderBy.direction)
+    // .limit(limit)
+    // .offset(offset);
     // if (!data.results.length) return this.emptyPageResponse()
     if (!data.length) return this.emptyPageResponse();
     return data;
@@ -60,7 +60,6 @@ export class BaseDao extends BaseModel {
     const data = await this.query()
       .findById(id)
       .throwIfNotFound({ message: `item with ${id} not found` });
-    if (!data) throw this.errorEmptyResponse();
     return data;
   }
 

@@ -1,4 +1,4 @@
-import { Model } from "objection";
+import objection, { Model } from "objection";
 // import objection, { val } from "objection";
 import BaseQuery from "./BaseQuery.js";
 import { assert, errorCodes, AppError } from "../../../core/index.js";
