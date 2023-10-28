@@ -20,8 +20,7 @@ export class BaseDao extends BaseModel {
   }
 
   static async all({ page, limit, filter, orderBy } = {}) {
-    let current_page = page - 1;
-    assert.integer(Number(current_page), {
+    assert.integer(Number(page), {
       required: true,
       message: "page number is required",
     });
@@ -29,18 +28,21 @@ export class BaseDao extends BaseModel {
       required: true,
       message: "limit number of obejcts is required",
     });
+    let current_page = page - 1;
     assert.object(filter, { required: false });
     // assert.id(filter.userId)
 
     // const offset = current_page * limit;
+
     const data = await this.query()
       .where({ ...filter })
-      .page(page, limit);
-    // .orderBy(orderBy.field, orderBy.direction)
+      // .orderBy(orderBy.field, orderBy.direction)
+      .page(current_page, limit);
+
     // .limit(limit)
     // .offset(offset);
-    // if (!data.results.length) return this.emptyPageResponse()
-    if (!data.length) return this.emptyPageResponse();
+    // if (!data.results.length) return this.emptyPageResponse();
+
     return data;
   }
 

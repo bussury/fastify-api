@@ -9,8 +9,8 @@ export default class ListUsersAction extends BaseAction {
     const { query } = ctx;
     const users = await UserDao.all({ ...query });
     return this.result({
-      data: users,
-      headers: { "X-Total-Count": users.length },
+      data: users.results,
+      headers: { "X-Total-Count": users.total },
     });
   }
 }

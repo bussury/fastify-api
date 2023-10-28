@@ -50,7 +50,7 @@ class BaseAction {
     assert.object(result.headers);
     assert.string(result.message);
     assert.ok(result.data);
-    // return result;
+
     return {
       success: result.success || true,
       status: result.status || 200,
