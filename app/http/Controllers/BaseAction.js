@@ -57,7 +57,8 @@ class BaseAction {
       ...(result.cookies && { cookies: result.cookies }),
       ...(result.headers && { headers: result.headers }),
       ...(result.message && { message: result.message }),
-      ...(result.data && { data: result.data }),
+      // ...(result.data && { data: result.data }),
+      ...result,
     };
   }
   static redirect(options) {

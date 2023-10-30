@@ -15,8 +15,8 @@ export class BaseDao extends BaseModel {
     assert.object(data, { required: true });
 
     const result = await this.query().patchAndFetchById(id, data);
-
-    return this.mapObject(result);
+    return result;
+    // return this.mapObject(result);
   }
 
   static async all({ page, limit, filter, orderBy } = {}) {
@@ -31,8 +31,6 @@ export class BaseDao extends BaseModel {
     let current_page = page - 1;
     assert.object(filter, { required: false });
     // assert.id(filter.userId)
-
-    // const offset = current_page * limit;
 
     const data = await this.query()
       .where({ ...filter })
