@@ -16,7 +16,7 @@
   "dependencies": {
     "@fastify/cookie": "^9.2.0",
     "@fastify/formbody": "^7.4.0",
-    "@fastify/jwt": "^7.2.3",
+    "@fastify/jwt": "^7.2.4",
     "@fastify/multipart": "^8.0.0",
     "@fastify/sensible": "^5.5.0",
     "@fastify/session": "^10.5.0",
@@ -26,7 +26,7 @@
     "http-errors": "^2.0.0",
     "joi": "^17.11.0",
     "knex": "^3.0.1",
-    "mysql2": "^3.6.3",
+    "mysql2": "^3.6.5",
     "objection": "^3.1.2",
     "pino": "^8.16.2"
   },
