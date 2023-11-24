@@ -19,11 +19,11 @@ const knex = Knex(configEnvironment);
     tablename:'user_sessions'
 })
 /**
- * @param {import('fastify').FastifyInstance} fastify 
+ * @param {import('fastify').FastifyInstance} fastify
  */
   async function appSession (fastify, opts) {
-    
-    
+
+    console.log("Session Testing ")
     fastify.register(cookies);
     fastify.register(session,{
         cookieName: 'sessionId',
