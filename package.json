@@ -32,7 +32,6 @@
   },
   "devDependencies": {
     "@fastify/autoload": "^5.8.0",
-    "cross-env": "^7.0.3",
     "dotenv": "^16.4.1",
     "fastify": "^4.26.0",
     "nodemon": "^3.0.3"
