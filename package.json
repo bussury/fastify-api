@@ -16,7 +16,7 @@
   "dependencies": {
     "@fastify/cookie": "^11.0.2",
     "@fastify/formbody": "^8.0.2",
-    "@fastify/jwt": "^9.0.3",
+    "@fastify/jwt": "^9.0.4",
     "@fastify/multipart": "^9.0.3",
     "@fastify/sensible": "^6.0.3",
     "@fastify/session": "^11.1.0",
